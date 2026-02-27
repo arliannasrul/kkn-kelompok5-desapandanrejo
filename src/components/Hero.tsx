@@ -1,4 +1,3 @@
-
 "use client"
 
 import React from 'react';
@@ -20,18 +19,18 @@ export function Hero() {
             alt="Desa Pandanrejo"
             fill
             priority
-            className="object-cover brightness-[0.35] animate-slow-zoom"
+            className="object-cover brightness-[0.4] animate-slow-zoom"
             data-ai-hint="nature landscape village"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/20 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/30 via-primary/20 to-background" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto text-center px-6 pt-8 md:pt-12">
+      <div className="relative z-10 max-w-6xl mx-auto text-center px-6 pt-12">
         <div className="flex flex-col items-center gap-4 mb-8">
           <div className="inline-flex items-center gap-2 bg-primary/40 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 animate-reveal shadow-2xl">
-            <MapPin className="w-4 h-4 text-accent" />
-            <span className="text-accent text-sm font-bold tracking-widest uppercase">Desa Pandanrejo, Wagir</span>
+            <MapPin className="w-4 h-4 text-secondary" />
+            <span className="text-secondary text-sm font-bold tracking-widest uppercase">Desa Pandanrejo, Wagir</span>
           </div>
           <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2 animate-reveal delay-100">
             <Calendar className="w-4 h-4 text-white/80" />
@@ -39,22 +38,21 @@ export function Hero() {
           </div>
         </div>
         
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight animate-reveal delay-200 tracking-tight">
-          Optimalisasi Pengelolaan <br className="hidden md:block" />
-          <span className="text-accent italic font-headline inline-flex items-center gap-4">
-             Sampah Plastik <Sparkles className="w-8 h-8 md:w-12 md:h-12 animate-pulse text-accent" />
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight animate-reveal delay-200 tracking-tight">
+          Optimalisasi Pengelolaan Sampah Plastik <br className="hidden md:block" />
+          Melalui <span className="text-secondary italic font-headline inline-flex items-center gap-4">
+             Teknologi Mesin Pirolisis <Sparkles className="w-8 h-8 md:w-12 md:h-12 animate-pulse text-secondary" />
           </span>
         </h1>
         
-        <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-4xl mx-auto font-body leading-relaxed animate-reveal delay-300">
-          Transformasi limbah menjadi energi melalui <span className="text-white font-bold border-b-2 border-accent">Teknologi Mesin Pirolisis</span>. 
-          Inovasi KKN Kelompok 5 Universitas Merdeka Malang untuk keberlanjutan Desa Pandanrejo.
+        <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-4xl mx-auto font-body leading-relaxed animate-reveal delay-300">
+          Sebagai Sumber Bahan Bakar Alternatif. Inovasi KKN Kelompok 5 Universitas Merdeka Malang untuk keberlanjutan Desa Pandanrejo.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-reveal delay-400">
           <Button 
             size="lg" 
-            className="bg-accent text-primary font-black hover:bg-accent/90 px-10 py-7 text-lg rounded-full shadow-glow transition-all hover:scale-105 active:scale-95 group"
+            className="bg-secondary text-primary font-black hover:bg-secondary/90 px-10 py-7 text-lg rounded-full shadow-glow transition-all hover:scale-105 active:scale-95 group border-none"
             onClick={() => document.getElementById('programs')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Detail Program
@@ -68,15 +66,6 @@ export function Hero() {
           >
             Jelajahi Arsip
           </Button>
-        </div>
-      </div>
-
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-float hidden md:flex">
-        <div className="flex flex-col items-center gap-3">
-          <span className="text-white/40 text-xs font-bold uppercase tracking-[0.3em]">Scroll Down</span>
-          <div className="w-6 h-12 border-2 border-accent/30 rounded-full flex justify-center p-1.5 shadow-sm">
-            <div className="w-1.5 h-3 bg-accent rounded-full animate-bounce" />
-          </div>
         </div>
       </div>
     </section>
