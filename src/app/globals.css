@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,7 +23,7 @@
     --border: 89 20% 85%;
     --input: 89 20% 85%;
     --ring: 89 40% 40%;
-    --radius: 0.75rem;
+    --radius: 1rem;
   }
   .dark {
     --background: 89 40% 5%;
@@ -54,24 +53,78 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground selection:bg-accent/30;
+    @apply bg-background text-foreground selection:bg-accent/30 overflow-x-hidden;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline;
   }
 }
 
+/* Custom Animations */
 .animate-reveal {
-  animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s ease-in-out infinite alternate;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite alternate;
 }
 
 @keyframes reveal {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 5px rgba(var(--accent), 0.2); }
+  to { box-shadow: 0 0 25px rgba(var(--accent), 0.5); }
+}
+
+/* Staggered Delay Helpers */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+.reveal-on-scroll {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+  @apply animate-reveal;
+}
+
+.hover-lift {
+  @apply transition-transform duration-300 ease-out hover:-translate-y-2 hover:shadow-xl;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 15px hsl(var(--accent) / 0.4);
 }

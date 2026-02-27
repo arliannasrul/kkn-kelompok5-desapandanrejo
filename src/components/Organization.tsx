@@ -1,10 +1,8 @@
-
 "use client"
 
 import React from 'react';
 import Image from 'next/image';
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 export function Organization() {
@@ -35,52 +33,65 @@ export function Organization() {
   ];
 
   return (
-    <section id="organization" className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-accent text-sm font-bold uppercase tracking-[0.2em] mb-4">Struktur Organisasi</h2>
-          <h3 className="text-4xl md:text-5xl font-bold font-headline mb-6 text-primary">KKN Kelompok 5 Unmer Malang</h3>
-          <div className="w-20 h-1.5 bg-accent mx-auto rounded-full" />
+    <section id="organization" className="py-32 bg-background relative overflow-hidden">
+      {/* Background patterns */}
+      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-secondary/30 to-transparent" />
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-24">
+          <h2 className="text-accent text-sm font-bold uppercase tracking-[0.4em] mb-4">Penggerak Perubahan</h2>
+          <h3 className="text-5xl md:text-7xl font-bold font-headline mb-8 text-primary">Struktur Organisasi</h3>
+          <div className="w-24 h-2 bg-accent mx-auto rounded-full shadow-sm" />
         </div>
 
         {/* DPL Section */}
-        <div className="flex justify-center mb-20">
+        <div className="flex justify-center mb-24">
           <div className="text-center group">
-            <div className="relative w-32 h-32 mx-auto mb-4 p-1 rounded-full border-4 border-primary/20 group-hover:border-accent transition-colors duration-500 overflow-hidden">
+            <div className="relative w-48 h-48 mx-auto mb-6 p-2 rounded-full border-4 border-primary/10 group-hover:border-accent transition-all duration-700 overflow-hidden shadow-2xl">
               <Image
                 src={PlaceHolderImages.find(img => img.id === 'member-1')?.imageUrl || ''}
                 alt={dpl.name}
                 fill
-                className="object-cover rounded-full group-hover:scale-110 transition-transform duration-500"
+                className="object-cover rounded-full group-hover:scale-110 transition-transform duration-700"
               />
+              <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
-            <Badge className="bg-primary text-white mb-2">DPL</Badge>
-            <h4 className="text-xl font-bold font-headline text-primary">{dpl.name}</h4>
-            <p className="text-muted-foreground text-xs uppercase tracking-widest">{dpl.role}</p>
+            <div className="inline-flex items-center gap-2 mb-4">
+               <div className="h-px w-8 bg-accent/40" />
+               <Badge className="bg-primary text-white text-xs py-1 px-4 rounded-full">DPL KKN</Badge>
+               <div className="h-px w-8 bg-accent/40" />
+            </div>
+            <h4 className="text-3xl font-bold font-headline text-primary mb-1 tracking-tight">{dpl.name}</h4>
+            <p className="text-accent font-bold text-xs uppercase tracking-[0.3em]">{dpl.role}</p>
           </div>
         </div>
 
         {/* Members Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-y-12 gap-x-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-y-16 gap-x-8">
           {members.map((member, idx) => {
             const imageIdx = (idx % 3) + 1;
             const memberImage = PlaceHolderImages.find(img => img.id === `member-${imageIdx}`);
             
             return (
-              <div key={idx} className="flex flex-col items-center text-center group">
-                <div className="relative w-20 h-20 mb-4 rounded-full overflow-hidden border-2 border-border group-hover:border-accent transition-all duration-300 shadow-sm">
+              <div 
+                key={idx} 
+                className="flex flex-col items-center text-center group"
+                style={{ transitionDelay: `${idx * 50}ms` }}
+              >
+                <div className="relative w-24 h-24 mb-5 rounded-full overflow-hidden border-2 border-border group-hover:border-accent group-hover:shadow-glow transition-all duration-500 shadow-sm ring-4 ring-transparent group-hover:ring-accent/10">
                   <Image
                     src={memberImage?.imageUrl || ''}
                     alt={member.name}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover group-hover:scale-125 transition-transform duration-1000 grayscale group-hover:grayscale-0"
                     data-ai-hint="student portrait"
                   />
-                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <div className="space-y-1">
-                  <h4 className="text-sm font-bold text-primary leading-tight px-2">{member.name}</h4>
-                  <p className="text-[10px] text-accent font-bold uppercase tracking-tighter opacity-80 group-hover:opacity-100">
+                <div className="space-y-1 transform group-hover:-translate-y-1 transition-transform">
+                  <h4 className="text-sm font-black text-primary leading-tight px-1 group-hover:text-accent transition-colors">{member.name}</h4>
+                  <div className="h-0.5 w-0 bg-accent mx-auto group-hover:w-full transition-all duration-300" />
+                  <p className="text-[9px] text-muted-foreground font-bold uppercase tracking-widest pt-1">
                     {member.role}
                   </p>
                 </div>

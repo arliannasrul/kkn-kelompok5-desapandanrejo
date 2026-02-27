@@ -1,4 +1,3 @@
-
 "use client"
 
 import { Navigation } from "@/components/Navigation";
@@ -10,17 +9,18 @@ import { Footer } from "@/components/Footer";
 import { useEffect } from "react";
 
 export default function Home() {
-  // Simple intersection observer for reveals
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.1,
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("animate-reveal");
-          observer.unobserve(entry.target);
+          entry.target.classList.add("active");
+          // Optionally unobserve after animating once
+          // observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
@@ -32,22 +32,22 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen selection:bg-accent selection:text-primary">
       <Navigation />
       
       <Hero />
       
-      <div className="reveal-on-scroll opacity-0">
+      <section className="reveal-on-scroll">
         <Organization />
-      </div>
+      </section>
 
-      <div className="reveal-on-scroll opacity-0">
+      <section className="reveal-on-scroll">
         <WorkPrograms />
-      </div>
+      </section>
 
-      <div className="reveal-on-scroll opacity-0">
+      <section className="reveal-on-scroll">
         <ArchiveGallery />
-      </div>
+      </section>
 
       <Footer />
     </main>
