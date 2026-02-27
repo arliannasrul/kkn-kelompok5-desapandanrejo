@@ -14,14 +14,16 @@ export function Hero() {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
       {/* Background with slow zoom animation */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <Image
-          src={heroImage?.imageUrl || ''}
-          alt="Desa Pandanrejo"
-          fill
-          priority
-          className="object-cover brightness-[0.35] animate-slow-zoom"
-          data-ai-hint="nature landscape village"
-        />
+        {heroImage?.imageUrl && (
+          <Image
+            src={heroImage.imageUrl}
+            alt="Desa Pandanrejo"
+            fill
+            priority
+            className="object-cover brightness-[0.35] animate-slow-zoom"
+            data-ai-hint="nature landscape village"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/20 to-background" />
       </div>
 

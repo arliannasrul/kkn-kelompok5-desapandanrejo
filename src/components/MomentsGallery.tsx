@@ -47,14 +47,16 @@ export function MomentsGallery() {
                     className="group relative break-inside-avoid rounded-3xl overflow-hidden cursor-zoom-in hover-lift border border-border/50 shadow-sm hover:shadow-2xl transition-all duration-500"
                     style={{ animationDelay: `${idx * 150}ms` }}
                   >
-                    <Image
-                      src={momentImg?.imageUrl || ''}
-                      alt={moment.title}
-                      width={800}
-                      height={600}
-                      className="w-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                      data-ai-hint={momentImg?.imageHint || 'activity'}
-                    />
+                    {momentImg?.imageUrl && (
+                      <Image
+                        src={momentImg.imageUrl}
+                        alt={moment.title}
+                        width={800}
+                        height={600}
+                        className="w-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                        data-ai-hint={momentImg?.imageHint || 'activity'}
+                      />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                       <div className="flex items-center gap-2 mb-2">
                         <Heart className="w-4 h-4 text-accent fill-accent" />
@@ -72,12 +74,14 @@ export function MomentsGallery() {
                 </DialogTrigger>
                 <DialogContent className="max-w-4xl p-0 overflow-hidden border-none bg-black/90 shadow-none">
                   <div className="relative aspect-[4/3] w-full">
-                    <Image
-                      src={momentImg?.imageUrl || ''}
-                      alt={moment.title}
-                      fill
-                      className="object-contain"
-                    />
+                    {momentImg?.imageUrl && (
+                      <Image
+                        src={momentImg.imageUrl}
+                        alt={moment.title}
+                        fill
+                        className="object-contain"
+                      />
+                    )}
                     <div className="absolute bottom-6 left-6 right-6 p-6 bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl">
                        <h3 className="text-white font-headline text-2xl font-bold mb-1">{moment.title}</h3>
                        <p className="text-white/60 text-sm">Dokumentasi KKN Kelompok 5 Unmer Malang di Desa Pandanrejo.</p>
@@ -93,11 +97,21 @@ export function MomentsGallery() {
           <div className="inline-block p-1 rounded-full bg-gradient-to-r from-accent to-primary">
             <div className="bg-background px-8 py-4 rounded-full flex items-center gap-4">
                <div className="flex -space-x-3">
-                  {[1, 2, 3].map(i => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-background overflow-hidden bg-muted">
-                       <Image src={PlaceHolderImages.find(img => img.id === `member-${i}`)?.imageUrl || ''} alt="Team" width={40} height={40} className="object-cover" />
-                    </div>
-                  ))}
+                  {[1, 2, 3].map(i => {
+                    const memberImg = PlaceHolderImages.find(img => img.id === `member-${i}`);
+                    return (
+                      <div key={i} className="w-10 h-10 rounded-full border-2 border-background overflow-hidden bg-muted relative">
+                         {memberImg?.imageUrl && (
+                           <Image 
+                            src={memberImg.imageUrl} 
+                            alt="Team" 
+                            fill 
+                            className="object-cover" 
+                           />
+                         )}
+                      </div>
+                    );
+                  })}
                </div>
                <p className="text-sm font-bold text-primary">Dibuat dengan <Heart className="inline-block w-4 h-4 text-accent fill-accent mx-1" /> oleh Tim Dokumentasi</p>
             </div>

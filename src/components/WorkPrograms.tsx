@@ -1,3 +1,4 @@
+
 "use client"
 
 import React from 'react';
@@ -135,13 +136,15 @@ export function WorkPrograms() {
               </div>
             </div>
             <div className="w-full lg:w-2/5 aspect-[4/5] relative rounded-[2.5rem] overflow-hidden shadow-glow animate-float">
-               <Image 
-                src={pirolisisImg?.imageUrl || ''} 
-                alt="Pengolahan Sampah" 
-                fill 
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                data-ai-hint="waste management plastic"
-               />
+               {pirolisisImg?.imageUrl && (
+                 <Image 
+                  src={pirolisisImg.imageUrl} 
+                  alt="Pengolahan Sampah" 
+                  fill 
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  data-ai-hint="waste management plastic"
+                 />
+               )}
                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-8">
                   <p className="text-white font-bold text-lg italic">"Waste is only waste if we waste it."</p>
                </div>

@@ -1,3 +1,4 @@
+
 "use client"
 
 import React from 'react';
@@ -48,12 +49,14 @@ export function Organization() {
         <div className="flex justify-center mb-24">
           <div className="text-center group">
             <div className="relative w-48 h-48 mx-auto mb-6 p-2 rounded-full border-4 border-primary/10 group-hover:border-accent transition-all duration-700 overflow-hidden shadow-2xl">
-              <Image
-                src={PlaceHolderImages.find(img => img.id === 'member-1')?.imageUrl || ''}
-                alt={dpl.name}
-                fill
-                className="object-cover rounded-full group-hover:scale-110 transition-transform duration-700"
-              />
+              {PlaceHolderImages.find(img => img.id === 'member-1')?.imageUrl && (
+                <Image
+                  src={PlaceHolderImages.find(img => img.id === 'member-1')!.imageUrl}
+                  alt={dpl.name}
+                  fill
+                  className="object-cover rounded-full group-hover:scale-110 transition-transform duration-700"
+                />
+              )}
               <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="inline-flex items-center gap-2 mb-4">
@@ -79,13 +82,15 @@ export function Organization() {
                 style={{ transitionDelay: `${idx * 50}ms` }}
               >
                 <div className="relative w-24 h-24 mb-5 rounded-full overflow-hidden border-2 border-border group-hover:border-accent group-hover:shadow-glow transition-all duration-500 shadow-sm ring-4 ring-transparent group-hover:ring-accent/10">
-                  <Image
-                    src={memberImage?.imageUrl || ''}
-                    alt={member.name}
-                    fill
-                    className="object-cover group-hover:scale-125 transition-transform duration-1000 grayscale group-hover:grayscale-0"
-                    data-ai-hint="student portrait"
-                  />
+                  {memberImage?.imageUrl && (
+                    <Image
+                      src={memberImage.imageUrl}
+                      alt={member.name}
+                      fill
+                      className="object-cover group-hover:scale-125 transition-transform duration-1000 grayscale group-hover:grayscale-0"
+                      data-ai-hint="student portrait"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
                 <div className="space-y-1 transform group-hover:-translate-y-1 transition-transform">

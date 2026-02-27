@@ -175,12 +175,14 @@ export function ArchiveGallery() {
                   <Dialog key={poster.id}>
                     <DialogTrigger asChild>
                       <div className="group relative aspect-[2/3] rounded-xl overflow-hidden cursor-zoom-in">
-                        <Image
-                          src={posterImg?.imageUrl || ''}
-                          alt={poster.title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
+                        {posterImg?.imageUrl && (
+                          <Image
+                            src={posterImg.imageUrl}
+                            alt={poster.title}
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        )}
                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                           <ImageIcon className="text-white w-10 h-10" />
                         </div>
@@ -188,12 +190,14 @@ export function ArchiveGallery() {
                     </DialogTrigger>
                     <DialogContent className="max-w-xl p-0 overflow-hidden border-none bg-transparent shadow-none">
                        <div className="relative aspect-[2/3] w-full">
-                          <Image
-                            src={posterImg?.imageUrl || ''}
-                            alt={poster.title}
-                            fill
-                            className="object-contain"
-                          />
+                          {posterImg?.imageUrl && (
+                            <Image
+                              src={posterImg.imageUrl}
+                              alt={poster.title}
+                              fill
+                              className="object-contain"
+                            />
+                          )}
                        </div>
                     </DialogContent>
                   </Dialog>
@@ -207,12 +211,14 @@ export function ArchiveGallery() {
                const videoImg = PlaceHolderImages.find(img => img.id === video.imageId);
                return (
                  <div key={video.id} className="relative aspect-video rounded-3xl overflow-hidden group cursor-pointer shadow-2xl">
-                    <Image
-                      src={videoImg?.imageUrl || ''}
-                      alt={video.title}
-                      fill
-                      className="object-cover brightness-75 group-hover:scale-105 transition-transform duration-1000"
-                    />
+                    {videoImg?.imageUrl && (
+                      <Image
+                        src={videoImg.imageUrl}
+                        alt={video.title}
+                        fill
+                        className="object-cover brightness-75 group-hover:scale-105 transition-transform duration-1000"
+                      />
+                    )}
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
                        <div className="w-20 h-20 bg-accent text-primary rounded-full flex items-center justify-center mb-6 shadow-glow animate-pulse">
                           <Play className="w-8 h-8 fill-current ml-1" />
