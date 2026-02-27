@@ -32,7 +32,8 @@ export function Footer() {
               <li><a href="#home" className="hover:text-accent transition-colors">Beranda</a></li>
               <li><a href="#organization" className="hover:text-accent transition-colors">Tim Pelaksana</a></li>
               <li><a href="#programs" className="hover:text-accent transition-colors">Program Kerja</a></li>
-              <li><a href="#archive" className="hover:text-accent transition-colors">Arsip Digital</a></li>
+              <li><a href="#moments" className="hover:text-accent transition-colors">Dokumentasi</a></li>
+              <li><a href="#archive" className="hover:text-accent transition-colors">Arsip Luaran</a></li>
             </ul>
           </div>
 

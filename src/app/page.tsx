@@ -1,3 +1,4 @@
+
 "use client"
 
 import { Navigation } from "@/components/Navigation";
@@ -5,13 +6,14 @@ import { Hero } from "@/components/Hero";
 import { Organization } from "@/components/Organization";
 import { WorkPrograms } from "@/components/WorkPrograms";
 import { ArchiveGallery } from "@/components/ArchiveGallery";
+import { MomentsGallery } from "@/components/MomentsGallery";
 import { Footer } from "@/components/Footer";
 import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.15,
+      threshold: 0.1,
       rootMargin: "0px 0px -50px 0px"
     };
 
@@ -19,8 +21,6 @@ export default function Home() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
-          // Optionally unobserve after animating once
-          // observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
@@ -43,6 +43,10 @@ export default function Home() {
 
       <section className="reveal-on-scroll">
         <WorkPrograms />
+      </section>
+
+      <section className="reveal-on-scroll">
+        <MomentsGallery />
       </section>
 
       <section className="reveal-on-scroll">

@@ -54,6 +54,42 @@
       "description": "Treasurer",
       "imageUrl": "https://picsum.photos/seed/member3/300/300",
       "imageHint": "professional portrait"
+    },
+    {
+      "id": "moment-1",
+      "description": "Foto Bersama di Balai Desa",
+      "imageUrl": "https://picsum.photos/seed/moment1/800/600",
+      "imageHint": "group photo smiling"
+    },
+    {
+      "id": "moment-2",
+      "description": "Proses Pengelasan Mesin",
+      "imageUrl": "https://picsum.photos/seed/moment2/800/600",
+      "imageHint": "welding machine activity"
+    },
+    {
+      "id": "moment-3",
+      "description": "Canda Tawa saat Briefing",
+      "imageUrl": "https://picsum.photos/seed/moment3/800/600",
+      "imageHint": "friends laughing meeting"
+    },
+    {
+      "id": "moment-4",
+      "description": "Sosialisasi ke Warga",
+      "imageUrl": "https://picsum.photos/seed/moment4/800/600",
+      "imageHint": "talking to villagers"
+    },
+    {
+      "id": "moment-5",
+      "description": "Sunset di Pandanrejo",
+      "imageUrl": "https://picsum.photos/seed/moment5/800/600",
+      "imageHint": "sunset village landscape"
+    },
+    {
+      "id": "moment-6",
+      "description": "Kebersamaan Makan Malam",
+      "imageUrl": "https://picsum.photos/seed/moment6/800/600",
+      "imageHint": "eating together dinner"
     }
   ]
 }

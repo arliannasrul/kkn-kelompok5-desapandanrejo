@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useState, useEffect } from 'react';
@@ -20,7 +21,8 @@ export function Navigation() {
     { name: 'Beranda', href: '#home' },
     { name: 'Tim Kami', href: '#organization' },
     { name: 'Program Kerja', href: '#programs' },
-    { name: 'Arsip Digital', href: '#archive' },
+    { name: 'Dokumentasi', href: '#moments' },
+    { name: 'Arsip Luaran', href: '#archive' },
   ];
 
   return (
