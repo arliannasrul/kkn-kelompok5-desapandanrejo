@@ -3,93 +3,87 @@
   "placeholderImages": [
     {
       "id": "hero-bg",
-      "description": "Desa Pandanrejo Landscape",
-      "imageUrl": "https://picsum.photos/seed/pandanrejo1/1920/1080",
-      "imageHint": "nature landscape village"
+      "description": "Pemandangan Desa Pandanrejo",
+      "imageUrl": "https://picsum.photos/seed/pandanrejo-vibe/1920/1080",
+      "imageHint": "nature village landscape"
     },
     {
       "id": "work-program-1",
-      "description": "Education Program",
-      "imageUrl": "https://picsum.photos/seed/kkn-edu/600/400",
-      "imageHint": "teaching children"
+      "description": "Edukasi Mesin Pirolisis",
+      "imageUrl": "https://picsum.photos/seed/pirolisis-tech/800/600",
+      "imageHint": "technology machine engineering"
     },
     {
       "id": "work-program-2",
-      "description": "Environment Program",
-      "imageUrl": "https://picsum.photos/seed/kkn-env/600/400",
-      "imageHint": "planting trees"
-    },
-    {
-      "id": "work-program-3",
-      "description": "Health Program",
-      "imageUrl": "https://picsum.photos/seed/kkn-health/600/400",
-      "imageHint": "medical checkup"
-    },
-    {
-      "id": "poster-1",
-      "description": "KKN Event Poster",
-      "imageUrl": "https://picsum.photos/seed/poster1/800/1200",
-      "imageHint": "event poster"
-    },
-    {
-      "id": "video-thumbnail",
-      "description": "Video Profile Thumbnail",
-      "imageUrl": "https://picsum.photos/seed/video1/1280/720",
-      "imageHint": "group photo activity"
+      "description": "Pengelolaan Sampah Plastik",
+      "imageUrl": "https://picsum.photos/seed/plastic-waste/800/600",
+      "imageHint": "recycling plastic waste"
     },
     {
       "id": "member-1",
-      "description": "Team Leader",
-      "imageUrl": "https://picsum.photos/seed/member1/300/300",
-      "imageHint": "professional portrait"
+      "description": "Foto Anggota 1",
+      "imageUrl": "https://picsum.photos/seed/student-1/400/400",
+      "imageHint": "student portrait"
     },
     {
       "id": "member-2",
-      "description": "Secretary",
-      "imageUrl": "https://picsum.photos/seed/member2/300/300",
-      "imageHint": "professional portrait"
+      "description": "Foto Anggota 2",
+      "imageUrl": "https://picsum.photos/seed/student-2/400/400",
+      "imageHint": "student portrait"
     },
     {
       "id": "member-3",
-      "description": "Treasurer",
-      "imageUrl": "https://picsum.photos/seed/member3/300/300",
-      "imageHint": "professional portrait"
+      "description": "Foto Anggota 3",
+      "imageUrl": "https://picsum.photos/seed/student-3/400/400",
+      "imageHint": "student portrait"
     },
     {
       "id": "moment-1",
-      "description": "Foto Bersama di Balai Desa",
-      "imageUrl": "https://picsum.photos/seed/moment1/800/600",
-      "imageHint": "group photo smiling"
+      "description": "Kerja Bakti Bersama Warga",
+      "imageUrl": "https://picsum.photos/seed/kkn-activity-1/800/1000",
+      "imageHint": "people working together"
     },
     {
       "id": "moment-2",
-      "description": "Proses Pengelasan Mesin",
-      "imageUrl": "https://picsum.photos/seed/moment2/800/600",
-      "imageHint": "welding machine activity"
+      "description": "Sosialisasi di Balai Desa",
+      "imageUrl": "https://picsum.photos/seed/kkn-activity-2/800/600",
+      "imageHint": "presentation meeting village"
     },
     {
       "id": "moment-3",
-      "description": "Canda Tawa saat Briefing",
-      "imageUrl": "https://picsum.photos/seed/moment3/800/600",
-      "imageHint": "friends laughing meeting"
+      "description": "Proses Perakitan Mesin",
+      "imageUrl": "https://picsum.photos/seed/kkn-activity-3/800/800",
+      "imageHint": "welding machine sparks"
     },
     {
       "id": "moment-4",
-      "description": "Sosialisasi ke Warga",
-      "imageUrl": "https://picsum.photos/seed/moment4/800/600",
-      "imageHint": "talking to villagers"
+      "description": "Foto Bersama Anak-anak Desa",
+      "imageUrl": "https://picsum.photos/seed/kkn-activity-4/800/600",
+      "imageHint": "smiling children village"
     },
     {
       "id": "moment-5",
-      "description": "Sunset di Pandanrejo",
-      "imageUrl": "https://picsum.photos/seed/moment5/800/600",
-      "imageHint": "sunset village landscape"
+      "description": "Diskusi Malam Tim",
+      "imageUrl": "https://picsum.photos/seed/kkn-activity-5/800/1000",
+      "imageHint": "group discussion night"
     },
     {
       "id": "moment-6",
-      "description": "Kebersamaan Makan Malam",
-      "imageUrl": "https://picsum.photos/seed/moment6/800/600",
-      "imageHint": "eating together dinner"
+      "description": "Hasil Olahan Pirolisis",
+      "imageUrl": "https://picsum.photos/seed/kkn-activity-6/800/600",
+      "imageHint": "liquid fuel bottle"
+    },
+    {
+      "id": "video-thumbnail",
+      "description": "Thumbnail Video Profil",
+      "imageUrl": "https://picsum.photos/seed/video-profile/1280/720",
+      "imageHint": "cinematic village drone"
+    },
+    {
+      "id": "poster-1",
+      "description": "Poster Program Kerja",
+      "imageUrl": "https://picsum.photos/seed/kkn-poster/800/1200",
+      "imageHint": "graphic design poster"
     }
   ]
 }

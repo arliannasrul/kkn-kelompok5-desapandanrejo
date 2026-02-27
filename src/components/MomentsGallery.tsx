@@ -33,7 +33,7 @@ export function MomentsGallery() {
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             Setiap detik yang kami habiskan di Desa Pandanrejo adalah cerita yang tak terlupakan. 
-            Berikut adalah cuplikan kenangan terbaik kami.
+            Berikut adalah cuplikan kenangan terbaik kami selama masa pengabdian.
           </p>
         </div>
 
@@ -53,6 +53,7 @@ export function MomentsGallery() {
                       width={800}
                       height={600}
                       className="w-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                      data-ai-hint={momentImg?.imageHint || 'activity'}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                       <div className="flex items-center gap-2 mb-2">
