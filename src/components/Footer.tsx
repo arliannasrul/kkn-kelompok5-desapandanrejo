@@ -2,7 +2,7 @@
 "use client"
 
 import React from 'react';
-import { Trees, Mail, Instagram, MapPin, Globe } from "lucide-react";
+import { Trees, Mail, Instagram, MapPin, Globe, Phone, Camera } from "lucide-react";
 
 export function Footer() {
   return (
@@ -16,12 +16,13 @@ export function Footer() {
             </div>
             <p className="text-white/60 max-w-sm mb-8 font-body leading-relaxed">
               Program Kuliah Kerja Nyata Universitas Merdeka Malang. 
-              Fokus pada pengembangan ekonomi desa, kesehatan masyarakat, dan kelestarian lingkungan di Desa Pandanrejo.
+              Inovasi Mesin Pirolisis untuk Desa Pandanrejo mandiri energi dan bebas sampah plastik.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-3 bg-white/10 hover:bg-accent hover:text-primary transition-colors rounded-full"><Instagram className="w-5 h-5" /></a>
-              <a href="#" className="p-3 bg-white/10 hover:bg-accent hover:text-primary transition-colors rounded-full"><Mail className="w-5 h-5" /></a>
-              <a href="#" className="p-3 bg-white/10 hover:bg-accent hover:text-primary transition-colors rounded-full"><Globe className="w-5 h-5" /></a>
+              <a href="https://instagram.com/kknpandanrejo5" target="_blank" className="p-3 bg-white/10 hover:bg-accent hover:text-primary transition-colors rounded-full" title="Instagram"><Instagram className="w-5 h-5" /></a>
+              <a href="https://tiktok.com/@kknunmerkelompok5" target="_blank" className="p-3 bg-white/10 hover:bg-accent hover:text-primary transition-colors rounded-full" title="TikTok"><Camera className="w-5 h-5" /></a>
+              <a href="mailto:almer.rasyid@unmer.ac.id" className="p-3 bg-white/10 hover:bg-accent hover:text-primary transition-colors rounded-full" title="Email"><Mail className="w-5 h-5" /></a>
+              <a href="tel:087849776598" className="p-3 bg-white/10 hover:bg-accent hover:text-primary transition-colors rounded-full" title="WhatsApp"><Phone className="w-5 h-5" /></a>
             </div>
           </div>
 
@@ -29,14 +30,14 @@ export function Footer() {
             <h5 className="font-bold text-xl mb-6 font-headline">Tautan Cepat</h5>
             <ul className="space-y-4 text-white/60">
               <li><a href="#home" className="hover:text-accent transition-colors">Beranda</a></li>
-              <li><a href="#organization" className="hover:text-accent transition-colors">Struktur Organisasi</a></li>
+              <li><a href="#organization" className="hover:text-accent transition-colors">Tim Pelaksana</a></li>
               <li><a href="#programs" className="hover:text-accent transition-colors">Program Kerja</a></li>
               <li><a href="#archive" className="hover:text-accent transition-colors">Arsip Digital</a></li>
             </ul>
           </div>
 
           <div>
-            <h5 className="font-bold text-xl mb-6 font-headline">Kontak Desa</h5>
+            <h5 className="font-bold text-xl mb-6 font-headline">Informasi Kontak</h5>
             <ul className="space-y-4 text-white/60">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-accent shrink-0" />
@@ -44,17 +45,20 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-accent shrink-0" />
-                <span>kkn5unmer@student.unmer.ac.id</span>
+                <span>almer.rasyid@unmer.ac.id</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Phone className="w-5 h-5 text-accent shrink-0" />
+                <span>0878-4977-6598</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-sm">
-          <p>© 2024 Kelompok 5 KKN Unmer Malang. All rights reserved.</p>
+          <p>© 2026 Kelompok 5 KKN Unmer Malang. Desa Pandanrejo.</p>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-white transition-colors">Kebijakan Privasi</a>
-            <a href="#" className="hover:text-white transition-colors">Syarat & Ketentuan</a>
+            <span className="text-accent/60 italic">19 Jan - 19 Feb 2026</span>
           </div>
         </div>
       </div>
