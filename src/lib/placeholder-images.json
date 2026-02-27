@@ -1,3 +1,88 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Pemandangan Desa Pandanrejo",
+      "imageUrl": "https://images.unsplash.com/photo-1616386573884-22531fd226e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxuYXR1cmUlMjB2aWxsYWdlJTIwbGFuZHNjYXBlfGVufDB8fHx8MTc3MjE3MzExOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nature village landscape"
+    },
+    {
+      "id": "work-program-1",
+      "description": "Edukasi Mesin Pirolisis",
+      "imageUrl": "https://images.unsplash.com/photo-1738918929491-3c102ce11c8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZWNobm9sb2d5JTIwbWFjaGluZSUyMGVuZ2luZWVyaW5nfGVufDB8fHx8MTc3MjE3MzExOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "technology machine engineering"
+    },
+    {
+      "id": "work-program-2",
+      "description": "Pengelolaan Sampah Plastik",
+      "imageUrl": "https://images.unsplash.com/photo-1606037150583-fb842a55bae7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZWN5Y2xpbmclMjBwbGFzdGljJTIwd2FzdGV8ZW58MHx8fHwxNzcyMTczMTE5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "recycling plastic waste"
+    },
+    {
+      "id": "member-1",
+      "description": "Foto Anggota 1",
+      "imageUrl": "https://images.unsplash.com/photo-1621274790572-7c32596bc67f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdHVkZW50JTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcyMDg4MTI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student portrait"
+    },
+    {
+      "id": "member-2",
+      "description": "Foto Anggota 2",
+      "imageUrl": "https://images.unsplash.com/photo-1619431667975-e93b820cde63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzdHVkZW50JTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcyMDg4MTI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student portrait"
+    },
+    {
+      "id": "member-3",
+      "description": "Foto Anggota 3",
+      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdHVkZW50JTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcyMDg4MTI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student portrait"
+    },
+    {
+      "id": "moment-1",
+      "description": "Kerja Bakti Bersama Warga",
+      "imageUrl": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwZW9wbGUlMjB3b3JraW5nJTIwdG9nZXRoZXJ8ZW58MHx8fHwxNzcyMTczMTE5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "people working together"
+    },
+    {
+      "id": "moment-2",
+      "description": "Sosialisasi di Balai Desa",
+      "imageUrl": "https://images.unsplash.com/photo-1660795468878-d9d8d75967b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJlc2VudGF0aW9uJTIwbWVldGluZyUyMHZpbGxhZ2V8ZW58MHx8fHwxNzcyMTczMTE5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "presentation meeting village"
+    },
+    {
+      "id": "moment-3",
+      "description": "Proses Perakitan Mesin",
+      "imageUrl": "https://images.unsplash.com/photo-1738162837389-3b02d6dd507b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3ZWxkaW5nJTIwbWFjaGluZSUyMHNwYXJrc3xlbnwwfHx8fDE3NzIxNzMxMTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "welding machine sparks"
+    },
+    {
+      "id": "moment-4",
+      "description": "Foto Bersama Anak-anak Desa",
+      "imageUrl": "https://images.unsplash.com/photo-1621926289600-c12c7720c723?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzbWlsaW5nJTIwY2hpbGRyZW4lMjB2aWxsYWdlfGVufDB8fHx8MTc3MjE3MzExOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smiling children village"
+    },
+    {
+      "id": "moment-5",
+      "description": "Diskusi Malam Tim",
+      "imageUrl": "https://images.unsplash.com/photo-1708578200684-3aa944b73237?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxncm91cCUyMGRpc2N1c3Npb24lMjBuaWdodHxlbnwwfHx8fDE3NzIxNzMxMTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "group discussion night"
+    },
+    {
+      "id": "moment-6",
+      "description": "Hasil Olahan Pirolisis",
+      "imageUrl": "https://images.unsplash.com/photo-1722532254518-89016ba75a15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsaXF1aWQlMjBmdWVsJTIwYm90dGxlfGVufDB8fHx8MTc3MjE3MzExOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "liquid fuel bottle"
+    },
+    {
+      "id": "video-thumbnail",
+      "description": "Thumbnail Video Profil",
+      "imageUrl": "https://images.unsplash.com/photo-1768069840893-3d1cbd54aadc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaW5lbWF0aWMlMjB2aWxsYWdlJTIwZHJvbmV8ZW58MHx8fHwxNzcyMTczMTE5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cinematic village drone"
+    },
+    {
+      "id": "poster-1",
+      "description": "Poster Program Kerja",
+      "imageUrl": "https://images.unsplash.com/photo-1655156871717-ccda8ae8274c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxncmFwaGljJTIwZGVzaWduJTIwcG9zdGVyfGVufDB8fHx8MTc3MjE3MzEyMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "graphic design poster"
+    }
+  ]
 }
