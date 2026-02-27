@@ -25,7 +25,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/20 to-background" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto text-center px-6 pt-16 md:pt-24">
+      <div className="relative z-10 max-w-6xl mx-auto text-center px-6 pt-8 md:pt-12">
         <div className="flex flex-col items-center gap-4 mb-8">
           <div className="inline-flex items-center gap-2 bg-primary/40 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 animate-reveal shadow-2xl">
             <MapPin className="w-4 h-4 text-accent" />
