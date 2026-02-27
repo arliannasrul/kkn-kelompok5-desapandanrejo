@@ -5,13 +5,14 @@ import React from 'react';
 import Image from 'next/image';
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Badge } from "@/components/ui/badge";
-import { User, Users, GraduationCap, Briefcase, Camera, Coffee, Wrench, Mic2, Heart, Instagram } from "lucide-react";
+import { Users, GraduationCap, Briefcase, Camera, Coffee, Wrench, Mic2, Instagram } from "lucide-react";
 
 interface Member {
   name: string;
   role: string;
   isKoord?: boolean;
   instagram?: string;
+  imageId: string;
 }
 
 interface Division {
@@ -24,13 +25,14 @@ export function Organization() {
   const dpl: Member = { 
     name: "Almer Rasyid, S.AB., M.AB", 
     role: "Dosen Pembimbing Lapangan",
-    instagram: "@almerasyid"
+    instagram: "@almerasyid",
+    imageId: "member-dpl"
   };
   
   const bph: Member[] = [
-    { name: "Arwin Danga Renya", role: "Koordinator Desa (Ketua)", instagram: "@arwindanga" },
-    { name: "Anma Santya Putri", role: "Sekretaris", instagram: "@anmasantya" },
-    { name: "Aretha Altakezia", role: "Bendahara", instagram: "@arethaalt" },
+    { name: "Arwin Danga Renya", role: "Ketua (Kordes)", instagram: "@arwindanga", imageId: "member-1" },
+    { name: "Anma Santya Putri", role: "Sekretaris", instagram: "@anmasantya", imageId: "member-2" },
+    { name: "Aretha Altakezia", role: "Bendahara", instagram: "@arethaalt", imageId: "member-3" },
   ];
 
   const divisions: Division[] = [
@@ -38,55 +40,54 @@ export function Organization() {
       title: "Sie Acara",
       icon: <Mic2 className="w-4 h-4" />,
       members: [
-        { name: "Annisa Nuur A.M", role: "Koordinator", isKoord: true, instagram: "@annisaan" },
-        { name: "Anggie Yunika V.", role: "Anggota", instagram: "@anggiey" },
+        { name: "Annisa Nuur A.M", role: "Koordinator", isKoord: true, instagram: "@annisaan", imageId: "member-4" },
+        { name: "Anggie Yunika V.", role: "Anggota", instagram: "@anggiey", imageId: "member-5" },
       ]
     },
     {
       title: "Sie Humas",
       icon: <Users className="w-4 h-4" />,
       members: [
-        { name: "Arya Dewangga", role: "Koordinator", isKoord: true, instagram: "@aryadew" },
-        { name: "Anisa Putri Nur A.", role: "Anggota", instagram: "@anisaputri" },
+        { name: "Arya Dewangga", role: "Koordinator", isKoord: true, instagram: "@aryadew", imageId: "member-6" },
+        { name: "Anisa Putri Nur A.", role: "Anggota", instagram: "@anisaputri", imageId: "member-7" },
       ]
     },
     {
       title: "Sie PDD",
       icon: <Camera className="w-4 h-4" />,
       members: [
-        { name: "Arlian Nasrul R.", role: "Koordinator", isKoord: true, instagram: "@arliannas" },
-        { name: "Apbrarin Nusantari", role: "Anggota", instagram: "@apbrarin" },
+        { name: "Arlian Nasrul R.", role: "Koordinator", isKoord: true, instagram: "@arliannas", imageId: "member-8" },
+        { name: "Apbrarin Nusantari", role: "Anggota", instagram: "@apbrarin", imageId: "member-9" },
       ]
     },
     {
       title: "Sie Konsumsi",
       icon: <Coffee className="w-4 h-4" />,
       members: [
-        { name: "Arin Eki Yunia", role: "Koordinator", isKoord: true, instagram: "@arineki" },
-        { name: "Aprilisa Wulandari", role: "Anggota", instagram: "@aprilisaw" },
+        { name: "Arin Eki Yunia", role: "Koordinator", isKoord: true, instagram: "@arineki", imageId: "member-10" },
+        { name: "Aprilisa Wulandari", role: "Anggota", instagram: "@aprilisaw", imageId: "member-11" },
       ]
     },
     {
       title: "Sie Perlengkapan",
       icon: <Wrench className="w-4 h-4" />,
       members: [
-        { name: "Ardian Gefi Algifari", role: "Koordinator", isKoord: true, instagram: "@ardiang" },
-        { name: "Aranda Bimantara", role: "Anggota", instagram: "@arandab" },
-        { name: "Antonius Dwi S.", role: "Anggota", instagram: "@antoniuss" },
-        { name: "Dewi Wardani", role: "Anggota", instagram: "@dewiwar" },
-        { name: "Anggreni Kahi A.", role: "Anggota", instagram: "@anggrenik" },
-        { name: "Antonio Dwi A.", role: "Anggota", instagram: "@antonioa" },
-        { name: "Anselmus Rama Liko S.", role: "Anggota", instagram: "@anselmusr" },
-        { name: "Damianus Gordon T.L.", role: "Anggota", instagram: "@damianusg" },
-        { name: "Aren Retang Mila A.", role: "Anggota", instagram: "@arenretang" },
-        { name: "Arnoldus Ferdinando", role: "Anggota", instagram: "@arnoldusf" },
+        { name: "Ardian Gefi Algifari", role: "Koordinator", isKoord: true, instagram: "@ardiang", imageId: "member-12" },
+        { name: "Aranda Bimantara", role: "Anggota", instagram: "@arandab", imageId: "member-13" },
+        { name: "Antonius Dwi S.", role: "Anggota", instagram: "@antoniuss", imageId: "member-14" },
+        { name: "Dewi Wardani", role: "Anggota", instagram: "@dewiwar", imageId: "member-15" },
+        { name: "Anggreni Kahi A.", role: "Anggota", instagram: "@anggrenik", imageId: "member-16" },
+        { name: "Antonio Dwi A.", role: "Anggota", instagram: "@antonioa", imageId: "member-17" },
+        { name: "Anselmus Rama Liko S.", role: "Anggota", instagram: "@anselmusr", imageId: "member-18" },
+        { name: "Damianus Gordon T.L.", role: "Anggota", instagram: "@damianusg", imageId: "member-19" },
+        { name: "Aren Retang Mila A.", role: "Anggota", instagram: "@arenretang", imageId: "member-20" },
+        { name: "Arnoldus Ferdinando", role: "Anggota", instagram: "@arnoldusf", imageId: "member-21" },
       ]
     }
   ];
 
-  const MemberCard = ({ member, index, small = false }: { member: Member, index: number, small?: boolean }) => {
-    const imageIdx = (index % 3) + 1;
-    const memberImage = PlaceHolderImages.find(img => img.id === `member-${imageIdx}`);
+  const MemberCard = ({ member, small = false }: { member: Member, small?: boolean }) => {
+    const memberImage = PlaceHolderImages.find(img => img.id === member.imageId);
     
     return (
       <div className="flex flex-col items-center text-center group">
@@ -126,7 +127,7 @@ export function Organization() {
         <div className="text-center mb-20">
           <Badge variant="outline" className="border-accent text-accent mb-4 px-4 py-1">Struktur Tim</Badge>
           <h2 className="text-4xl md:text-5xl font-bold font-headline text-primary">Penggerak Perubahan</h2>
-          <p className="text-muted-foreground mt-4 max-w-xl mx-auto">Sinergi kelompok 5 Universitas Merdeka Malang untuk Desa Pandanrejo.</p>
+          <p className="text-muted-foreground mt-4 max-w-xl mx-auto">Sinergi 21 Mahasiswa & 1 DPL Universitas Merdeka Malang untuk Desa Pandanrejo.</p>
         </div>
 
         {/* DPL Section */}
@@ -136,7 +137,7 @@ export function Organization() {
             <span className="font-bold text-sm tracking-widest uppercase">Dosen Pembimbing Lapangan</span>
           </div>
           <div className="bg-secondary/30 p-8 rounded-[2rem] border border-primary/10 hover:border-accent/30 transition-all group">
-            <MemberCard member={dpl} index={0} />
+            <MemberCard member={dpl} />
           </div>
         </div>
 
@@ -152,7 +153,7 @@ export function Organization() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 max-w-4xl mx-auto">
             {bph.map((member, i) => (
-              <MemberCard key={i} member={member} index={i + 1} />
+              <MemberCard key={i} member={member} />
             ))}
           </div>
         </div>
@@ -176,7 +177,7 @@ export function Organization() {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   {div.members.map((m, idx) => (
-                    <MemberCard key={idx} member={m} index={idx + i + 5} small />
+                    <MemberCard key={idx} member={m} small />
                   ))}
                 </div>
               </div>
@@ -196,7 +197,7 @@ export function Organization() {
              </div>
              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-12 gap-x-6">
                 {divisions[4].members.map((m, idx) => (
-                  <MemberCard key={idx} member={m} index={idx + 10} small />
+                  <MemberCard key={idx} member={m} small />
                 ))}
              </div>
           </div>
@@ -205,4 +206,3 @@ export function Organization() {
     </section>
   );
 }
-
