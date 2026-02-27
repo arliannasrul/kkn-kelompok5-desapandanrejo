@@ -1,0 +1,59 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Desa Pandanrejo Landscape",
+      "imageUrl": "https://picsum.photos/seed/pandanrejo1/1920/1080",
+      "imageHint": "nature landscape village"
+    },
+    {
+      "id": "work-program-1",
+      "description": "Education Program",
+      "imageUrl": "https://picsum.photos/seed/kkn-edu/600/400",
+      "imageHint": "teaching children"
+    },
+    {
+      "id": "work-program-2",
+      "description": "Environment Program",
+      "imageUrl": "https://picsum.photos/seed/kkn-env/600/400",
+      "imageHint": "planting trees"
+    },
+    {
+      "id": "work-program-3",
+      "description": "Health Program",
+      "imageUrl": "https://picsum.photos/seed/kkn-health/600/400",
+      "imageHint": "medical checkup"
+    },
+    {
+      "id": "poster-1",
+      "description": "KKN Event Poster",
+      "imageUrl": "https://picsum.photos/seed/poster1/800/1200",
+      "imageHint": "event poster"
+    },
+    {
+      "id": "video-thumbnail",
+      "description": "Video Profile Thumbnail",
+      "imageUrl": "https://picsum.photos/seed/video1/1280/720",
+      "imageHint": "group photo activity"
+    },
+    {
+      "id": "member-1",
+      "description": "Team Leader",
+      "imageUrl": "https://picsum.photos/seed/member1/300/300",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "member-2",
+      "description": "Secretary",
+      "imageUrl": "https://picsum.photos/seed/member2/300/300",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "member-3",
+      "description": "Treasurer",
+      "imageUrl": "https://picsum.photos/seed/member3/300/300",
+      "imageHint": "professional portrait"
+    }
+  ]
+}
