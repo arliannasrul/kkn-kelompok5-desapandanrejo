@@ -4,47 +4,47 @@
 
 @layer base {
   :root {
-    --background: 84 18% 96%;
-    --foreground: 89 40% 15%;
+    --background: 60 20% 98%;
+    --foreground: 144 49% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 89 40% 15%;
+    --card-foreground: 144 49% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 89 40% 15%;
-    --primary: 89 40% 40%;
-    --primary-foreground: 84 18% 98%;
-    --secondary: 180 71% 94%;
-    --secondary-foreground: 180 71% 20%;
-    --muted: 84 10% 90%;
-    --muted-foreground: 89 20% 40%;
-    --accent: 180 71% 60%;
-    --accent-foreground: 180 71% 10%;
+    --popover-foreground: 144 49% 10%;
+    --primary: 144 49% 20%;
+    --primary-foreground: 60 20% 98%;
+    --secondary: 144 30% 92%;
+    --secondary-foreground: 144 49% 20%;
+    --muted: 144 10% 90%;
+    --muted-foreground: 144 20% 40%;
+    --accent: 45 95% 50%;
+    --accent-foreground: 144 49% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 89 20% 85%;
-    --input: 89 20% 85%;
-    --ring: 89 40% 40%;
-    --radius: 1rem;
+    --border: 144 20% 85%;
+    --input: 144 20% 85%;
+    --ring: 45 95% 50%;
+    --radius: 1.5rem;
   }
   .dark {
-    --background: 89 40% 5%;
-    --foreground: 84 18% 98%;
-    --card: 89 40% 8%;
-    --card-foreground: 84 18% 98%;
-    --popover: 89 40% 8%;
-    --popover-foreground: 84 18% 98%;
-    --primary: 89 40% 50%;
-    --primary-foreground: 89 40% 5%;
-    --secondary: 180 71% 20%;
-    --secondary-foreground: 180 71% 94%;
-    --muted: 89 20% 20%;
-    --muted-foreground: 89 20% 70%;
-    --accent: 180 71% 40%;
-    --accent-foreground: 180 71% 98%;
+    --background: 144 49% 5%;
+    --foreground: 60 20% 98%;
+    --card: 144 49% 8%;
+    --card-foreground: 60 20% 98%;
+    --popover: 144 49% 8%;
+    --popover-foreground: 60 20% 98%;
+    --primary: 144 49% 30%;
+    --primary-foreground: 144 49% 5%;
+    --secondary: 144 30% 20%;
+    --secondary-foreground: 144 30% 90%;
+    --muted: 144 20% 20%;
+    --muted-foreground: 144 20% 70%;
+    --accent: 45 95% 50%;
+    --accent-foreground: 60 20% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 89 20% 25%;
-    --input: 89 20% 25%;
-    --ring: 89 40% 50%;
+    --border: 144 20% 25%;
+    --input: 144 20% 25%;
+    --ring: 45 95% 50%;
   }
 }
 
@@ -99,26 +99,8 @@
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 5px rgba(var(--accent), 0.2); }
-  to { box-shadow: 0 0 25px rgba(var(--accent), 0.5); }
-}
-
-/* Staggered Delay Helpers */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
-
-.reveal-on-scroll {
-  opacity: 0;
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.reveal-on-scroll.active {
-  opacity: 1;
-  transform: translateY(0);
-  @apply animate-reveal;
+  from { box-shadow: 0 0 5px hsl(var(--accent) / 0.2); }
+  to { box-shadow: 0 0 25px hsl(var(--accent) / 0.5); }
 }
 
 .hover-lift {
