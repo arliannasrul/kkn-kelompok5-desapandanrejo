@@ -1,3 +1,4 @@
+
 "use client"
 
 import React from 'react';
@@ -10,7 +11,7 @@ export function Hero() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
 
   return (
-    <section id="home" className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
       {/* Background with slow zoom animation */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
@@ -24,9 +25,9 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/20 to-background" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto text-center px-6">
+      <div className="relative z-10 max-w-6xl mx-auto text-center px-6 pt-16 md:pt-24">
         <div className="flex flex-col items-center gap-4 mb-8">
-          <div className="inline-flex items-center gap-2 bg-primary/30 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 animate-reveal shadow-2xl">
+          <div className="inline-flex items-center gap-2 bg-primary/40 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 animate-reveal shadow-2xl">
             <MapPin className="w-4 h-4 text-accent" />
             <span className="text-accent text-sm font-bold tracking-widest uppercase">Desa Pandanrejo, Wagir</span>
           </div>
@@ -49,7 +50,11 @@ export function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-reveal delay-400">
-          <Button size="lg" className="bg-accent text-primary font-black hover:bg-accent/90 px-10 py-7 text-lg rounded-full shadow-glow transition-all hover:scale-105 active:scale-95 group">
+          <Button 
+            size="lg" 
+            className="bg-accent text-primary font-black hover:bg-accent/90 px-10 py-7 text-lg rounded-full shadow-glow transition-all hover:scale-105 active:scale-95 group"
+            onClick={() => document.getElementById('programs')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Detail Program
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
@@ -64,7 +69,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-float">
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-float hidden md:flex">
         <div className="flex flex-col items-center gap-3">
           <span className="text-white/40 text-xs font-bold uppercase tracking-[0.3em]">Scroll Down</span>
           <div className="w-6 h-12 border-2 border-accent/30 rounded-full flex justify-center p-1.5 shadow-sm">
