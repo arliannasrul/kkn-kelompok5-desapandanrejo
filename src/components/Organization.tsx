@@ -5,12 +5,13 @@ import React from 'react';
 import Image from 'next/image';
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Badge } from "@/components/ui/badge";
-import { User, Users, GraduationCap, Briefcase, Camera, Coffee, Wrench, Mic2, Heart } from "lucide-react";
+import { User, Users, GraduationCap, Briefcase, Camera, Coffee, Wrench, Mic2, Heart, Instagram } from "lucide-react";
 
 interface Member {
   name: string;
   role: string;
   isKoord?: boolean;
+  instagram?: string;
 }
 
 interface Division {
@@ -20,12 +21,16 @@ interface Division {
 }
 
 export function Organization() {
-  const dpl = { name: "Almer Rasyid, S.AB., M.AB", role: "Dosen Pembimbing Lapangan" };
+  const dpl: Member = { 
+    name: "Almer Rasyid, S.AB., M.AB", 
+    role: "Dosen Pembimbing Lapangan",
+    instagram: "@almerasyid"
+  };
   
   const bph: Member[] = [
-    { name: "Arwin Danga Renya", role: "Koordinator Desa (Ketua)" },
-    { name: "Anma Santya Putri", role: "Sekretaris" },
-    { name: "Aretha Altakezia", role: "Bendahara" },
+    { name: "Arwin Danga Renya", role: "Koordinator Desa (Ketua)", instagram: "@arwindanga" },
+    { name: "Anma Santya Putri", role: "Sekretaris", instagram: "@anmasantya" },
+    { name: "Aretha Altakezia", role: "Bendahara", instagram: "@arethaalt" },
   ];
 
   const divisions: Division[] = [
@@ -33,59 +38,59 @@ export function Organization() {
       title: "Sie Acara",
       icon: <Mic2 className="w-4 h-4" />,
       members: [
-        { name: "Annisa Nuur A.M", role: "Koordinator", isKoord: true },
-        { name: "Anggie Yunika V.", role: "Anggota" },
+        { name: "Annisa Nuur A.M", role: "Koordinator", isKoord: true, instagram: "@annisaan" },
+        { name: "Anggie Yunika V.", role: "Anggota", instagram: "@anggiey" },
       ]
     },
     {
       title: "Sie Humas",
       icon: <Users className="w-4 h-4" />,
       members: [
-        { name: "Arya Dewangga", role: "Koordinator", isKoord: true },
-        { name: "Anisa Putri Nur A.", role: "Anggota" },
+        { name: "Arya Dewangga", role: "Koordinator", isKoord: true, instagram: "@aryadew" },
+        { name: "Anisa Putri Nur A.", role: "Anggota", instagram: "@anisaputri" },
       ]
     },
     {
       title: "Sie PDD",
       icon: <Camera className="w-4 h-4" />,
       members: [
-        { name: "Arlian Nasrul R.", role: "Koordinator", isKoord: true },
-        { name: "Apbrarin Nusantari", role: "Anggota" },
+        { name: "Arlian Nasrul R.", role: "Koordinator", isKoord: true, instagram: "@arliannas" },
+        { name: "Apbrarin Nusantari", role: "Anggota", instagram: "@apbrarin" },
       ]
     },
     {
       title: "Sie Konsumsi",
       icon: <Coffee className="w-4 h-4" />,
       members: [
-        { name: "Arin Eki Yunia", role: "Koordinator", isKoord: true },
-        { name: "Aprilisa Wulandari", role: "Anggota" },
+        { name: "Arin Eki Yunia", role: "Koordinator", isKoord: true, instagram: "@arineki" },
+        { name: "Aprilisa Wulandari", role: "Anggota", instagram: "@aprilisaw" },
       ]
     },
     {
       title: "Sie Perlengkapan",
       icon: <Wrench className="w-4 h-4" />,
       members: [
-        { name: "Ardian Gefi Algifari", role: "Koordinator", isKoord: true },
-        { name: "Aranda Bimantara", role: "Anggota" },
-        { name: "Antonius Dwi S.", role: "Anggota" },
-        { name: "Dewi Wardani", role: "Anggota" },
-        { name: "Anggreni Kahi A.", role: "Anggota" },
-        { name: "Antonio Dwi A.", role: "Anggota" },
-        { name: "Anselmus Rama Liko S.", role: "Anggota" },
-        { name: "Damianus Gordon T.L.", role: "Anggota" },
-        { name: "Aren Retang Mila A.", role: "Anggota" },
-        { name: "Arnoldus Ferdinando", role: "Anggota" },
+        { name: "Ardian Gefi Algifari", role: "Koordinator", isKoord: true, instagram: "@ardiang" },
+        { name: "Aranda Bimantara", role: "Anggota", instagram: "@arandab" },
+        { name: "Antonius Dwi S.", role: "Anggota", instagram: "@antoniuss" },
+        { name: "Dewi Wardani", role: "Anggota", instagram: "@dewiwar" },
+        { name: "Anggreni Kahi A.", role: "Anggota", instagram: "@anggrenik" },
+        { name: "Antonio Dwi A.", role: "Anggota", instagram: "@antonioa" },
+        { name: "Anselmus Rama Liko S.", role: "Anggota", instagram: "@anselmusr" },
+        { name: "Damianus Gordon T.L.", role: "Anggota", instagram: "@damianusg" },
+        { name: "Aren Retang Mila A.", role: "Anggota", instagram: "@arenretang" },
+        { name: "Arnoldus Ferdinando", role: "Anggota", instagram: "@arnoldusf" },
       ]
     }
   ];
 
-  const MemberCard = ({ member, index, small = false }: { member: Member | {name: string, role: string}, index: number, small?: boolean }) => {
+  const MemberCard = ({ member, index, small = false }: { member: Member, index: number, small?: boolean }) => {
     const imageIdx = (index % 3) + 1;
     const memberImage = PlaceHolderImages.find(img => img.id === `member-${imageIdx}`);
     
     return (
       <div className="flex flex-col items-center text-center group">
-        <div className={`relative ${small ? 'w-20 h-20' : 'w-24 h-24'} mb-3 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-accent group-hover:shadow-glow transition-all duration-500`}>
+        <div className={`relative ${small ? 'w-16 h-16' : 'w-24 h-24'} mb-3 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-accent group-hover:shadow-glow transition-all duration-500`}>
           {memberImage?.imageUrl && (
             <Image
               src={memberImage.imageUrl}
@@ -96,10 +101,21 @@ export function Organization() {
             />
           )}
         </div>
-        <h4 className={`${small ? 'text-xs' : 'text-sm'} font-bold text-primary leading-tight group-hover:text-accent transition-colors`}>{member.name}</h4>
-        <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mt-1">
-          {('isKoord' in member && member.isKoord) ? <span className="text-accent font-bold">Koordinator</span> : member.role}
+        <h4 className={`${small ? 'text-[10px]' : 'text-sm'} font-bold text-primary leading-tight group-hover:text-accent transition-colors`}>{member.name}</h4>
+        <p className="text-[9px] text-muted-foreground font-medium uppercase tracking-wider mt-0.5">
+          {member.isKoord ? <span className="text-accent font-bold">Koordinator</span> : member.role}
         </p>
+        {member.instagram && (
+          <a 
+            href={`https://instagram.com/${member.instagram.replace('@', '')}`} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="mt-1 flex items-center gap-1 text-[9px] font-bold text-accent/60 hover:text-accent transition-colors"
+          >
+            <Instagram className="w-2.5 h-2.5" />
+            {member.instagram}
+          </a>
+        )}
       </div>
     );
   };
@@ -189,3 +205,4 @@ export function Organization() {
     </section>
   );
 }
+
