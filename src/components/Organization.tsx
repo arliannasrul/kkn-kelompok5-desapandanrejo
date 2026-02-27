@@ -11,75 +11,80 @@ export function Organization() {
   const dpl = { name: "Almer Rasyid, S.AB., M.AB", role: "Dosen Pembimbing Lapangan (DPL)" };
   
   const members = [
-    { name: "Arya Dewangga", role: "Anggota" },
-    { name: "Anma Santya Putri", role: "Anggota" },
-    { name: "Aretha Altakezia", role: "Anggota" },
-    { name: "Ardian Gefi Algifari", role: "Anggota" },
-    { name: "Anisa Putri Nur A.", role: "Anggota" },
-    { name: "Arin Eki Yunia", role: "Anggota" },
-    { name: "Aprilisa Wulandari", role: "Anggota" },
-    { name: "Arlian Nasrul R.", role: "Anggota" },
-    { name: "Aranda Bimantara", role: "Anggota" },
-    { name: "Apbrarin Nusantari", role: "Anggota" },
-    { name: "Annisa Nuur A.M", role: "Anggota" },
-    { name: "Anggie Yunika V.", role: "Anggota" },
-    { name: "Antonius Dwi S.", role: "Anggota" },
-    { name: "Dewi Wardani", role: "Anggota" },
-    { name: "Anggreni Kahi A.", role: "Anggota" },
-    { name: "Antonio Dwi A.", role: "Anggota" },
+    { name: "Arwin Danga Renya", role: "Koordinator Desa" },
+    { name: "Anma Santya Putri", role: "Sekretaris" },
+    { name: "Aretha Altakezia", role: "Bendahara" },
+    { name: "Arya Dewangga", role: "Divisi Humas" },
+    { name: "Anisa Putri Nur A.", role: "Divisi Humas" },
+    { name: "Ardian Gefi Algifari", role: "Divisi Peralatan" },
+    { name: "Aranda Bimantara", role: "Divisi Peralatan" },
+    { name: "Arin Eki Yunia", role: "Divisi Konsumsi" },
+    { name: "Aprilisa Wulandari", role: "Divisi Konsumsi" },
+    { name: "Arlian Nasrul R.", role: "Divisi Dokumentasi" },
+    { name: "Apbrarin Nusantari", role: "Divisi Dokumentasi" },
+    { name: "Annisa Nuur A.M", role: "Divisi Acara" },
+    { name: "Anggie Yunika V.", role: "Divisi Acara" },
+    { name: "Antonius Dwi S.", role: "Divisi Teknis" },
+    { name: "Dewi Wardani", role: "Divisi Teknis" },
+    { name: "Anggreni Kahi A.", role: "Divisi Kebersihan" },
+    { name: "Antonio Dwi A.", role: "Divisi Kebersihan" },
     { name: "Anselmus Rama Liko S.", role: "Anggota" },
     { name: "Damianus Gordon T.L.", role: "Anggota" },
     { name: "Aren Retang Mila A.", role: "Anggota" },
-    { name: "Arwin Danga Renya", role: "Anggota" },
     { name: "Arnoldus Ferdinando", role: "Anggota" },
   ];
 
   return (
     <section id="organization" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-accent text-sm font-bold uppercase tracking-[0.2em] mb-4">Tim Pelaksana</h2>
+        <div className="text-center mb-20">
+          <h2 className="text-accent text-sm font-bold uppercase tracking-[0.2em] mb-4">Struktur Organisasi</h2>
           <h3 className="text-4xl md:text-5xl font-bold font-headline mb-6 text-primary">KKN Kelompok 5 Unmer Malang</h3>
           <div className="w-20 h-1.5 bg-accent mx-auto rounded-full" />
         </div>
 
-        {/* DPL Card */}
-        <div className="max-w-md mx-auto mb-16">
-          <Card className="bg-primary text-white text-center p-8 rounded-3xl overflow-hidden relative">
-            <div className="relative z-10">
-              <Badge variant="secondary" className="mb-4 bg-accent text-primary border-none">DPL</Badge>
-              <h4 className="text-2xl font-bold font-headline mb-2">{dpl.name}</h4>
-              <p className="text-white/70 text-sm">{dpl.role}</p>
+        {/* DPL Section */}
+        <div className="flex justify-center mb-20">
+          <div className="text-center group">
+            <div className="relative w-32 h-32 mx-auto mb-4 p-1 rounded-full border-4 border-primary/20 group-hover:border-accent transition-colors duration-500 overflow-hidden">
+              <Image
+                src={PlaceHolderImages.find(img => img.id === 'member-1')?.imageUrl || ''}
+                alt={dpl.name}
+                fill
+                className="object-cover rounded-full group-hover:scale-110 transition-transform duration-500"
+              />
             </div>
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-          </Card>
+            <Badge className="bg-primary text-white mb-2">DPL</Badge>
+            <h4 className="text-xl font-bold font-headline text-primary">{dpl.name}</h4>
+            <p className="text-muted-foreground text-xs uppercase tracking-widest">{dpl.role}</p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+        {/* Members Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-y-12 gap-x-6">
           {members.map((member, idx) => {
-            // Using a rotating set of placeholder images to avoid exhaustion
             const imageIdx = (idx % 3) + 1;
             const memberImage = PlaceHolderImages.find(img => img.id === `member-${imageIdx}`);
             
             return (
-              <Card key={idx} className="group overflow-hidden hover:shadow-lg transition-all border-none bg-white">
-                <CardContent className="p-0 relative aspect-[4/5]">
+              <div key={idx} className="flex flex-col items-center text-center group">
+                <div className="relative w-20 h-20 mb-4 rounded-full overflow-hidden border-2 border-border group-hover:border-accent transition-all duration-300 shadow-sm">
                   <Image
                     src={memberImage?.imageUrl || ''}
                     alt={member.name}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
                     data-ai-hint="student portrait"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent flex flex-col justify-end p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                    <h4 className="text-sm font-bold font-headline">{member.name}</h4>
-                    <p className="text-[10px] text-accent font-medium uppercase tracking-wider">{member.role}</p>
-                  </div>
-                </CardContent>
-                <div className="p-3 text-center">
-                  <h4 className="text-xs font-bold text-primary truncate">{member.name}</h4>
+                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-              </Card>
+                <div className="space-y-1">
+                  <h4 className="text-sm font-bold text-primary leading-tight px-2">{member.name}</h4>
+                  <p className="text-[10px] text-accent font-bold uppercase tracking-tighter opacity-80 group-hover:opacity-100">
+                    {member.role}
+                  </p>
+                </div>
+              </div>
             );
           })}
         </div>
