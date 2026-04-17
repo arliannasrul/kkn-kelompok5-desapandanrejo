@@ -108,7 +108,7 @@ export function MomentsGallery() {
                       <img
                         src={moment.url}
                         alt={moment.title}
-                        loading="eager"
+                        loading="lazy"
                         decoding="async"
                         className="w-full h-auto transition-transform duration-1000 group-hover:scale-110"
                       />
