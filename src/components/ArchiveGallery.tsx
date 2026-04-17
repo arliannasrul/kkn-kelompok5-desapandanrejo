@@ -8,43 +8,58 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { FileText, Image as ImageIcon, Video, Play, ExternalLink, Sparkles } from "lucide-react";
+import { FileText, Image as ImageIcon, Video, Play, ExternalLink, Sparkles, ZoomIn, ZoomOut, RotateCcw } from "lucide-react";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { summarizeArchivedDocument } from "@/ai/flows/summarize-archived-document-flow";
 import { toast } from "@/hooks/use-toast";
 
 export function ArchiveGallery() {
   const [activeCategory, setActiveCategory] = useState("articles");
-  const [summary, setSummary] = useState<string | null>(null);
-  const [isSummarizing, setIsSummarizing] = useState(false);
+  const [summaries, setSummaries] = useState<Record<string, string>>({});
+  const [summarizingStates, setSummarizingStates] = useState<Record<string, boolean>>({});
 
   const archives = {
     articles: [
-      { id: 1, title: "Potensi Wisata Pandanrejo", excerpt: "Mengenal kekayaan alam dan budaya desa...", content: "Full text content about the beautiful village of Pandanrejo, highlighting its unique water springs and traditional dances. The village is located in the hills of Wagir with fertile soil and friendly people." },
-      { id: 2, title: "Digitalisasi UMKM", excerpt: "Langkah awal membawa produk desa ke dunia...", content: "Comprehensive article about how KKN Group 5 helped local artisans setup social media business accounts and digital payment systems." }
+      { 
+        id: 1, 
+        title: "Mahasiswa KKN Unmer Malang Ciptakan Mesin Pirolisis: Ubah Sampah Plastik Jadi Bahan Bakar Alternatif", 
+        excerpt: "Kab Malang, IP - Mahasiswa KKN Universitas Merdeka (Unmer) Malang berhasil merancang mesin pengelolaan sampah plastik yang mampu mengubah limbah plastik", 
+        content: "Kab Malang, IP - Mahasiswa KKN Universitas Merdeka (Unmer) Malang berhasil merancang mesin pengelolaan sampah plastik yang mampu mengubah limbah plastik menjadi bahan bakar alternatif bernilai. Inovasi ini diwujudkan dalam program KKN di Desa Pandanrejo, Kabupaten Malang, sebagai respons proaktif terhadap masalah pengelolaan sampah lokal.\n\nDalam kegiatan ini, mahasiswa memberikan sosialisasi mengenai pembuatan arang briket dan pemanfaatan mesin pirolisis kepada warga setempat. Mesin pirolisis bekerja dengan memanaskan plastik tanpa oksigen untuk menguraikannya menjadi bahan bakar cair yang bisa dimanfaatkan. Proses ini diharapkan tidak hanya membantu desa dalam mengurangi volume sampah anorganik, tetapi juga memberikan alternatif energi yang lebih ekonomis bagi masyarakat............",
+        url: "https://inspirasipendidikan.co.id/2026/02/mahasiswa-kkn-unmer-malang-ciptakan-mesin-pirolisis-ubah-sampah-plastik-jadi-bahan-bakar-alternatif/"
+      }
     ],
     pkm: [
-      { id: 3, title: "Inovasi Pupuk Organik Cair", type: "PKM AI", content: "Scientific document regarding the chemical analysis of local waste materials processed into high-quality organic fertilizer for apple trees in Pandanrejo." }
+      { 
+        id: 3, 
+        title: "Optimalisasi Pengelolaan Sampah Plastik Melalui Teknologi Mesin Pirolisis Sebagai Sumber Bahan Bakar Alternatif", 
+        type: "PKM AI", 
+        content: "Scientific document regarding the chemical analysis of local waste materials processed into high-quality organic fertilizer for apple trees in Pandanrejo.",
+        fileUrl: "/pkm-ai.pdf"
+      }
     ],
     posters: [
-      { id: 4, title: "Poster Sosialisasi Kesehatan", imageId: "poster-1" },
-      { id: 5, title: "Poster Festival Desa", imageId: "hero-bg" }
+      { id: 4, title: "Poster KKN Mesin Pirolisis", imageUrl: "/poster.jpg.jpg" }
     ],
     videos: [
       { id: 6, title: "Video Profil Desa Pandanrejo", duration: "05:20", imageId: "video-thumbnail", url: "#" }
     ]
   };
 
-  const handleSummarize = async (text: string) => {
-    setIsSummarizing(true);
-    setSummary(null);
+  const handleSummarize = async (source: { type: 'content' | 'pdf' | 'url', value: string }, id: string) => {
+    setSummarizingStates(prev => ({ ...prev, [id]: true }));
     try {
-      const result = await summarizeArchivedDocument({ documentContent: text });
-      setSummary(result.summary);
-      toast({ title: "Ringkasan Berhasil", description: "AI telah merangkum dokumen Anda." });
+      const input: any = {};
+      if (source.type === 'content') input.documentContent = source.value;
+      if (source.type === 'pdf') input.pdfPath = source.value;
+      if (source.type === 'url') input.websiteUrl = source.value;
+
+      const result = await summarizeArchivedDocument(input);
+      setSummaries(prev => ({ ...prev, [id]: result.summary }));
+      toast({ title: "Ringkasan Berhasil", description: "AI telah berhasil menganalisa dokumen/sumber asli Anda." });
     } catch (error) {
-      toast({ title: "Gagal Merangkum", description: "Terjadi kesalahan saat menghubungi AI.", variant: "destructive" });
+      toast({ title: "Gagal Merangkum", description: "Terjadi kesalahan saat mengekstrak sumber dokumen.", variant: "destructive" });
     } finally {
-      setIsSummarizing(false);
+      setSummarizingStates(prev => ({ ...prev, [id]: false }));
     }
   };
 
@@ -90,32 +105,45 @@ export function ArchiveGallery() {
                       <DialogTrigger asChild>
                         <Button variant="outline" className="text-primary border-primary hover:bg-primary/5">Baca Selengkapnya</Button>
                       </DialogTrigger>
-                      <DialogContent className="max-w-2xl">
+                      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
                         <DialogHeader>
                           <DialogTitle className="text-3xl font-headline text-primary mb-4">{article.title}</DialogTitle>
                         </DialogHeader>
                         <div className="space-y-6">
-                          <p className="text-lg leading-relaxed text-foreground/80">{article.content}</p>
+                          <p className="text-lg leading-relaxed text-foreground/80 whitespace-pre-wrap">{article.content}</p>
+                          {article.url && (
+                             <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white">
+                               <a href={article.url} target="_blank" rel="noopener noreferrer">
+                                 Baca Artikel Asli di Inspirasi Pendidikan <ExternalLink className="w-4 h-4 ml-2" />
+                               </a>
+                             </Button>
+                          )}
                           <div className="bg-secondary/30 p-6 rounded-xl border border-accent/20">
                             <h5 className="flex items-center gap-2 font-bold text-primary mb-3">
                               <Sparkles className="w-4 h-4 text-accent" /> Ringkasan AI
                             </h5>
-                            {summary ? (
-                              <p className="text-sm italic">{summary}</p>
+                            {summaries[`article-${article.id}`] ? (
+                              <p className="text-sm italic">{summaries[`article-${article.id}`]}</p>
                             ) : (
                               <Button 
-                                onClick={() => handleSummarize(article.content)} 
-                                disabled={isSummarizing}
+                                onClick={() => handleSummarize({ type: article.url ? 'url' : 'content', value: article.url || article.content }, `article-${article.id}`)} 
+                                disabled={summarizingStates[`article-${article.id}`]}
                                 className="w-full bg-accent text-primary hover:bg-accent/80"
                               >
-                                {isSummarizing ? "Menganalisis..." : "Buat Ringkasan Otomatis"}
+                                {summarizingStates[`article-${article.id}`] ? "Mengekstrak Sumber Asli..." : "Buat Ringkasan Otomatis dari Sumber Berita"}
                               </Button>
                             )}
                           </div>
                         </div>
                       </DialogContent>
                     </Dialog>
-                    <Button variant="ghost" size="icon" className="text-muted-foreground"><ExternalLink className="w-4 h-4" /></Button>
+                    {article.url ? (
+                      <Button variant="ghost" size="icon" className="text-muted-foreground" asChild>
+                        <a href={article.url} target="_blank" rel="noopener noreferrer"><ExternalLink className="w-4 h-4" /></a>
+                      </Button>
+                    ) : (
+                      <Button variant="ghost" size="icon" className="text-muted-foreground"><ExternalLink className="w-4 h-4" /></Button>
+                    )}
                   </CardContent>
                 </Card>
               ))}
@@ -140,27 +168,45 @@ export function ArchiveGallery() {
                         <DialogTrigger asChild>
                            <Button className="bg-primary hover:bg-primary/90">Preview Dokumen</Button>
                         </DialogTrigger>
-                        <DialogContent className="max-w-3xl">
+                        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
                            <DialogHeader>
                               <DialogTitle className="font-headline text-2xl">{doc.title}</DialogTitle>
                            </DialogHeader>
-                           <div className="aspect-[4/5] bg-muted flex flex-col items-center justify-center border-2 border-dashed border-border rounded-xl p-10 text-center">
-                              <FileText className="w-16 h-16 text-muted-foreground mb-4" />
-                              <h4 className="font-bold text-xl mb-2">Simulasi Preview Dokumen PKM</h4>
-                              <p className="text-muted-foreground mb-6">{doc.content}</p>
-                              <Button variant="outline" onClick={() => handleSummarize(doc.content)} disabled={isSummarizing}>
-                                 {isSummarizing ? "Generating Summary..." : "Summarize with AI"}
-                              </Button>
-                              {summary && (
-                                 <div className="mt-8 p-4 bg-white rounded-lg shadow-sm text-left">
-                                    <h5 className="font-bold text-primary mb-2">Key Takeaways:</h5>
-                                    <p className="text-sm">{summary}</p>
-                                 </div>
-                              )}
+                           <div className="space-y-6">
+                              <div className="w-full aspect-[4/3] bg-muted rounded-xl overflow-hidden border border-border">
+                                {doc.fileUrl ? (
+                                  <iframe src={doc.fileUrl} className="w-full h-full" title={doc.title} />
+                                ) : (
+                                  <div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground">
+                                    <FileText className="w-12 h-12 mb-2" />
+                                    <p>File tidak tersedia</p>
+                                  </div>
+                                )}
+                              </div>
+                              <div className="bg-secondary/30 p-6 rounded-xl border border-accent/20">
+                                <h5 className="flex items-center gap-2 font-bold text-primary mb-3">
+                                  <Sparkles className="w-4 h-4 text-accent" /> Ringkasan AI
+                                </h5>
+                                {summaries[`pkm-${doc.id}`] ? (
+                                   <div className="p-4 bg-background rounded-lg border border-border/50 text-left">
+                                      <p className="text-sm leading-relaxed">{summaries[`pkm-${doc.id}`]}</p>
+                                   </div>
+                                ) : (
+                                   <Button 
+                                     onClick={() => handleSummarize({ type: doc.fileUrl ? 'pdf' : 'content', value: doc.fileUrl || doc.content }, `pkm-${doc.id}`)} 
+                                     disabled={summarizingStates[`pkm-${doc.id}`]}
+                                     className="w-full bg-accent text-primary hover:bg-accent/80"
+                                   >
+                                     {summarizingStates[`pkm-${doc.id}`] ? "Mengekstrak Teks PDF..." : "Buat Ringkasan Otomatis dari PDF"}
+                                   </Button>
+                                )}
+                              </div>
                            </div>
                         </DialogContent>
                      </Dialog>
-                     <Button variant="outline">Unduh PDF</Button>
+                     <Button variant="outline" asChild>
+                        <a href={doc.fileUrl || "/pkm-ai.pdf"} target="_blank" rel="noopener noreferrer">Unduh PDF</a>
+                     </Button>
                    </CardContent>
                 </Card>
               ))}
@@ -169,15 +215,13 @@ export function ArchiveGallery() {
 
           <TabsContent value="posters" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {archives.posters.map(poster => {
-                const posterImg = PlaceHolderImages.find(img => img.id === poster.imageId);
-                return (
+              {archives.posters.map(poster => (
                   <Dialog key={poster.id}>
                     <DialogTrigger asChild>
-                      <div className="group relative aspect-[2/3] rounded-xl overflow-hidden cursor-zoom-in">
-                        {posterImg?.imageUrl && (
+                      <div className="group relative aspect-[2/3] rounded-xl overflow-hidden cursor-zoom-in bg-muted">
+                        {poster.imageUrl && (
                           <Image
-                            src={posterImg.imageUrl}
+                            src={poster.imageUrl}
                             alt={poster.title}
                             fill
                             className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -188,21 +232,32 @@ export function ArchiveGallery() {
                         </div>
                       </div>
                     </DialogTrigger>
-                    <DialogContent className="max-w-xl p-0 overflow-hidden border-none bg-transparent shadow-none">
-                       <div className="relative aspect-[2/3] w-full">
-                          {posterImg?.imageUrl && (
-                            <Image
-                              src={posterImg.imageUrl}
-                              alt={poster.title}
-                              fill
-                              className="object-contain"
-                            />
-                          )}
-                       </div>
+                    <DialogContent className="max-w-[95vw] md:max-w-4xl h-[90vh] p-0 overflow-hidden border-none bg-transparent shadow-none flex flex-col justify-center items-center">
+                       {poster.imageUrl && (
+                         <TransformWrapper initialScale={1} minScale={0.5} maxScale={4} centerOnInit>
+                           {({ zoomIn, zoomOut, resetTransform }) => (
+                             <div className="relative w-full h-full flex flex-col bg-black/20 rounded-xl overflow-hidden backdrop-blur-sm">
+                               <div className="absolute top-4 right-4 z-50 flex gap-2">
+                                 <Button variant="secondary" size="icon" onClick={() => zoomIn(0.5)}><ZoomIn className="w-4 h-4" /></Button>
+                                 <Button variant="secondary" size="icon" onClick={() => zoomOut(0.5)}><ZoomOut className="w-4 h-4" /></Button>
+                                 <Button variant="secondary" size="icon" onClick={() => resetTransform()}><RotateCcw className="w-4 h-4" /></Button>
+                               </div>
+                               <TransformComponent wrapperClass="!w-full !h-full" contentClass="!w-full !h-full flex items-center justify-center">
+                                 <div className="relative w-full h-full min-h-[50vh] md:min-h-[80vh] flex items-center justify-center">
+                                    <img
+                                      src={poster.imageUrl as string}
+                                      alt={poster.title}
+                                      className="max-h-full max-w-full object-contain pointer-events-auto cursor-grab active:cursor-grabbing"
+                                    />
+                                 </div>
+                               </TransformComponent>
+                             </div>
+                           )}
+                         </TransformWrapper>
+                       )}
                     </DialogContent>
                   </Dialog>
-                );
-              })}
+              ))}
             </div>
           </TabsContent>
 

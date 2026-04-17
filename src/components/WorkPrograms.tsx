@@ -157,17 +157,33 @@ export function WorkPrograms() {
             <h4 className="text-3xl font-headline font-bold text-primary mb-8 flex items-center gap-4">
               <Sprout className="text-primary w-10 h-10" /> Hasil & Kesimpulan
             </h4>
-            <div className="space-y-8">
+            <div className="space-y-10">
               <div className="relative pl-8 border-l-4 border-muted">
                 <span className="absolute -left-2.5 top-0 w-4 h-4 rounded-full bg-muted" />
                 <h5 className="font-black text-muted-foreground text-xs uppercase tracking-widest mb-2">Sebelum</h5>
-                <p className="text-muted-foreground italic font-medium">Sampah plastik masih ditumpuk dan belum ada pengelolaan terpadu.</p>
+                <p className="text-muted-foreground italic font-medium mb-4">Sampah plastik masih ditumpuk dan belum ada pengelolaan terpadu.</p>
+                <div className="relative aspect-video rounded-2xl overflow-hidden border border-border shadow-sm grayscale opacity-70">
+                  <Image 
+                    src="/before%20after/before.jpg" 
+                    alt="Kondisi Sebelum" 
+                    fill 
+                    className="object-cover object-[center_65%]" 
+                  />
+                </div>
               </div>
               <div className="relative pl-8 border-l-4 border-primary">
                 <span className="absolute -left-2.5 top-0 w-4 h-4 rounded-full bg-primary animate-ping" />
                 <span className="absolute -left-2.5 top-0 w-4 h-4 rounded-full bg-primary" />
                 <h5 className="font-black text-primary text-xs uppercase tracking-widest mb-2">Sesudah</h5>
-                <p className="text-primary font-bold">Dihasilkannya bahan bakar cair dari proses pirolisis sebagai nilai tambah sampah plastik.</p>
+                <p className="text-primary font-bold mb-4">Dihasilkannya bahan bakar cair dari proses pirolisis sebagai nilai tambah sampah plastik.</p>
+                <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-primary/20 shadow-glow">
+                  <Image 
+                    src="/before%20after/after.jpg" 
+                    alt="Kondisi Sesudah" 
+                    fill 
+                    className="object-cover" 
+                  />
+                </div>
               </div>
             </div>
           </div>

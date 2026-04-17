@@ -25,14 +25,14 @@ export function Organization() {
   const dpl: Member = { 
     name: "Almer Rasyid, S.AB., M.AB", 
     role: "Dosen Pembimbing Lapangan",
-    instagram: "@almerasyid",
+    instagram: "@almerrasyid",
     imageId: "member-dpl"
   };
   
   const bph: Member[] = [
-    { name: "Arwin Danga Renya", role: "Ketua (Kordes)", instagram: "@arwindanga", imageId: "member-1" },
-    { name: "Anma Santya Putri", role: "Sekretaris", instagram: "@anmasantya", imageId: "member-2" },
-    { name: "Aretha Altakezia", role: "Bendahara", instagram: "@arethaalt", imageId: "member-3" },
+    { name: "Arya Dewangga", role: "Ketua (Kordes)", instagram: "@ardewngga", imageId: "member-1" },
+    { name: "Anma Santya Putri", role: "Sekretaris", instagram: "@anmasantyka_", imageId: "member-2" },
+    { name: "Aretha Altakezia", role: "Bendahara", instagram: "@abcdefghijkeiy_", imageId: "member-3" },
   ];
 
   const divisions: Division[] = [
@@ -40,47 +40,49 @@ export function Organization() {
       title: "Sie Acara",
       icon: <Mic2 className="w-4 h-4" />,
       members: [
-        { name: "Annisa Nuur A.M", role: "Koordinator", isKoord: true, instagram: "@annisaan", imageId: "member-4" },
-        { name: "Anggie Yunika V.", role: "Anggota", instagram: "@anggiey", imageId: "member-5" },
+        { name: "Ardian Gefi Algifari", role: "Koordinator", isKoord: true, instagram: "@ardian.gf.algfr", imageId: "member-12" },
+        { name: "Anisa Putri Nur A.", role: "Anggota", instagram: "@anisaputriiyy24", imageId: "member-7" },
+        { name: "Anggie Yunika V.", role: "Anggota", instagram: "@anggieyv", imageId: "member-5" },
       ]
     },
     {
       title: "Sie Humas",
       icon: <Users className="w-4 h-4" />,
       members: [
-        { name: "Arya Dewangga", role: "Koordinator", isKoord: true, instagram: "@aryadew", imageId: "member-6" },
-        { name: "Anisa Putri Nur A.", role: "Anggota", instagram: "@anisaputri", imageId: "member-7" },
+        { name: "Antonius Dwi S.", role: "Koordinator", isKoord: true, instagram: "@antoniusdss", imageId: "member-14" },
+        { name: "Arin Eki Yunia", role: "Anggota", instagram: "@rnkynra", imageId: "member-10" },
+        { name: "Aprilisa Wulandari", role: "Anggota", instagram: "@aprelisya", imageId: "member-11" },
+       
+        
       ]
     },
     {
       title: "Sie PDD",
       icon: <Camera className="w-4 h-4" />,
       members: [
-        { name: "Arlian Nasrul R.", role: "Koordinator", isKoord: true, instagram: "@arliannas", imageId: "member-8" },
-        { name: "Apbrarin Nusantari", role: "Anggota", instagram: "@apbrarin", imageId: "member-9" },
+        { name: "Arlian Nasrul R.", role: "Koordinator", isKoord: true, instagram: "@arliannasrul", imageId: "member-8" },
+        { name: "Apbrarin Nusantari", role: "Anggota", instagram: "@apbrin_", imageId: "member-9" },
+        { name: "Aranda Bimantara", role: "Anggota", instagram: "@arandabima_", imageId: "member-13" },
       ]
     },
     {
       title: "Sie Konsumsi",
       icon: <Coffee className="w-4 h-4" />,
       members: [
-        { name: "Arin Eki Yunia", role: "Koordinator", isKoord: true, instagram: "@arineki", imageId: "member-10" },
-        { name: "Aprilisa Wulandari", role: "Anggota", instagram: "@aprilisaw", imageId: "member-11" },
+        { name: "Annisa Nuur A.M", role: "Koordinator", isKoord: true, instagram: "@annisasthetic", imageId: "member-4" },
+         { name: "Dewi Wardani", role: "Anggota", instagram: "@hii.dewiiiu", imageId: "member-15" },
+         { name: "Anggreni Kahi A.", role: "Anggota", instagram: "@nggrinnn_", imageId: "member-16" },
       ]
     },
     {
       title: "Sie Perlengkapan",
       icon: <Wrench className="w-4 h-4" />,
       members: [
-        { name: "Ardian Gefi Algifari", role: "Koordinator", isKoord: true, instagram: "@ardiang", imageId: "member-12" },
-        { name: "Aranda Bimantara", role: "Anggota", instagram: "@arandab", imageId: "member-13" },
-        { name: "Antonius Dwi S.", role: "Anggota", instagram: "@antoniuss", imageId: "member-14" },
-        { name: "Dewi Wardani", role: "Anggota", instagram: "@dewiwar", imageId: "member-15" },
-        { name: "Anggreni Kahi A.", role: "Anggota", instagram: "@anggrenik", imageId: "member-16" },
-        { name: "Antonio Dwi A.", role: "Anggota", instagram: "@antonioa", imageId: "member-17" },
+        { name: "Antonio Dwi A.", role: "Koordinator", isKoord: true, instagram: "@antoniodwii", imageId: "member-17" },
+        { name: "Arwin Danga Renya", role: "Anggota", instagram: "@arwin2488", imageId: "member-6" },
         { name: "Anselmus Rama Liko S.", role: "Anggota", instagram: "@anselmusr", imageId: "member-18" },
-        { name: "Damianus Gordon T.L.", role: "Anggota", instagram: "@damianusg", imageId: "member-19" },
-        { name: "Aren Retang Mila A.", role: "Anggota", instagram: "@arenretang", imageId: "member-20" },
+        { name: "Damianus Gordon T.L.", role: "Anggota", instagram: "@dolintewe", imageId: "member-19" },
+        { name: "Aren Retang Mila A.", role: "Anggota", instagram: "@aren_retang", imageId: "member-20" },
         { name: "Arnoldus Ferdinando", role: "Anggota", instagram: "@arnoldusf", imageId: "member-21" },
       ]
     }
@@ -91,13 +93,13 @@ export function Organization() {
     
     return (
       <div className="flex flex-col items-center text-center group">
-        <div className={`relative ${small ? 'w-16 h-16' : 'w-24 h-24'} mb-3 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-accent group-hover:shadow-glow transition-all duration-500`}>
+        <div className={`relative ${small ? 'w-20 h-20' : 'w-32 h-32'} mb-3 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-accent group-hover:shadow-glow transition-all duration-500`}>
           {memberImage?.imageUrl && (
             <Image
               src={memberImage.imageUrl}
               alt={member.name}
               fill
-              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+              className="object-cover scale-110 grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-125"
               data-ai-hint="student portrait"
             />
           )}

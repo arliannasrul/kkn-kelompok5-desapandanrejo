@@ -2,7 +2,8 @@
 "use client"
 
 import React from 'react';
-import { Trees, Mail, Instagram, MapPin, Phone, Heart } from "lucide-react";
+import Image from 'next/image';
+import { Mail, Instagram, MapPin, Phone, Heart } from "lucide-react";
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg 
@@ -21,8 +22,10 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <Trees className="w-10 h-10 text-secondary" />
+            <div className="flex items-center gap-3 mb-6">
+              <div className="rounded-full bg-secondary p-1 overflow-hidden flex items-center justify-center">
+                <Image src="/logo.png" alt="Logo KKN" width={56} height={56} className="object-cover scale-150" />
+              </div>
               <span className="font-headline text-2xl font-bold tracking-tight">KKN Kelompok 5</span>
             </div>
             <p className="text-white/60 max-w-sm mb-8 font-body leading-relaxed">

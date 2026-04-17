@@ -9,9 +9,14 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
+import { readFileSync } from 'fs';
+import path from 'path';
+import * as cheerio from 'cheerio';
 
 const SummarizeArchivedDocumentInputSchema = z.object({
-  documentContent: z.string().describe('The full text content of the article or PKM AI document to be summarized.'),
+  documentContent: z.string().optional(),
+  pdfPath: z.string().optional(),
+  websiteUrl: z.string().optional()
 });
 export type SummarizeArchivedDocumentInput = z.infer<typeof SummarizeArchivedDocumentInputSchema>;
 
@@ -24,18 +29,6 @@ export async function summarizeArchivedDocument(input: SummarizeArchivedDocument
   return summarizeArchivedDocumentFlow(input);
 }
 
-const prompt = ai.definePrompt({
-  name: 'summarizeArchivedDocumentPrompt',
-  input: { schema: SummarizeArchivedDocumentInputSchema },
-  output: { schema: SummarizeArchivedDocumentOutputSchema },
-  prompt: `You are an AI assistant specialized in summarizing documents. Your task is to generate a concise summary or extract the key takeaways from the provided document content. The summary should be clear, informative, and help the user quickly grasp the main points.
-
-Document Content:
-{{{documentContent}}}
-
-Please provide a concise summary or key takeaways in paragraph form.`,
-});
-
 const summarizeArchivedDocumentFlow = ai.defineFlow(
   {
     name: 'summarizeArchivedDocumentFlow',
@@ -43,7 +36,39 @@ const summarizeArchivedDocumentFlow = ai.defineFlow(
     outputSchema: SummarizeArchivedDocumentOutputSchema,
   },
   async (input) => {
-    const { output } = await prompt(input);
-    return output!;
+    const parts: any[] = [{ 
+      text: "Anda adalah asisten AI yang ahli dalam membuat ringkasan. Apabila Anda diberikan teks dari sebuah situs web, abaikan semua teks terkait menu navigasi, iklan, footer, atau elemen sampingan, dan HANYA fokus menyarikan INTI BERITA atau ARTIKEL UTAMA. Tulislah ringkasan yang jelas, padat, dan representatif dalam paragraf berbahasa INDONESIA."
+    }];
+
+    if (input.pdfPath) {
+      if (input.pdfPath.startsWith('/')) {
+        const filePath = path.join(process.cwd(), 'public', input.pdfPath);
+        try {
+          const base64Pdf = readFileSync(filePath).toString('base64');
+          parts.push({ media: { url: `data:application/pdf;base64,${base64Pdf}` } });
+        } catch (e) {
+          parts.push({ text: `Failed to load PDF file at ${input.pdfPath}` });
+        }
+      }
+    } else if (input.websiteUrl) {
+      try {
+        const response = await fetch(input.websiteUrl);
+        const html = await response.text();
+        const $ = cheerio.load(html);
+        $('script, style, noscript, header, footer, nav, aside, .sidebar, .widget, .menu, #menu, [role="banner"], [role="navigation"], [role="contentinfo"]').remove();
+        const extractedText = $('body').text().replace(/\s+/g, ' ').trim();
+        parts.push({ text: `Website Text Content:\n${extractedText.substring(0, 30000)}` });
+      } catch (e) {
+        parts.push({ text: `Failed to load website from ${input.websiteUrl}` });
+      }
+    } else if (input.documentContent) {
+      parts.push({ text: `Document Content:\n${input.documentContent}` });
+    }
+
+    const { text } = await ai.generate({
+      prompt: parts,
+    });
+    
+    return { summary: text };
   }
 );
