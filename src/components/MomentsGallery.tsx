@@ -63,12 +63,16 @@ const MOMENTS = [
 
 export function MomentsGallery() {
   const [mounted, setMounted] = React.useState(false);
+  const [shuffledMoments, setShuffledMoments] = React.useState<typeof MOMENTS>([]);
 
   React.useEffect(() => {
+    // Shuffle once after mounting to avoid hydration mismatch
+    const shuffled = [...MOMENTS].sort(() => Math.random() - 0.5);
+    setShuffledMoments(shuffled);
     setMounted(true);
   }, []);
 
-  if (!mounted) return (
+  if (!mounted || shuffledMoments.length === 0) return (
     <div className="py-32 bg-background min-h-[500px] flex items-center justify-center">
        <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin" />
     </div>
@@ -94,54 +98,52 @@ export function MomentsGallery() {
           </p>
         </div>
 
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-          {MOMENTS.map((moment, idx) => {
-            return (
-              <Dialog key={moment.id}>
-                <DialogTrigger asChild>
-                  <div className="group relative break-inside-avoid rounded-3xl overflow-hidden cursor-zoom-in hover-lift border border-border/50 shadow-sm hover:shadow-2xl transition-all duration-500 bg-muted">
-                    <Image
-                      src={moment.url}
-                      alt={moment.title}
-                      width={1200}
-                      height={1200}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      loading={idx < 12 ? "eager" : "lazy"}
-                      priority={idx < 8}
-                      className="w-full h-auto transition-transform duration-1000 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Heart className="w-4 h-4 text-accent fill-accent" />
-                        <span className="text-accent text-[10px] font-bold uppercase tracking-[0.2em]">{moment.category}</span>
-                      </div>
-                      <h4 className="text-white font-headline text-xl font-bold">{moment.title}</h4>
-                      <div className="mt-4 flex items-center gap-2">
-                         <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center">
-                            <Sparkles className="w-3 h-3 text-white" />
-                         </div>
-                         <span className="text-white/60 text-[10px] font-medium">Capture by Team Documentation</span>
+        <div className="flex flex-col md:flex-row gap-6">
+          {[0, 1, 2].map((colIdx) => (
+            <div key={colIdx} className="flex-1 flex flex-col gap-6">
+              {shuffledMoments.filter((_, i) => i % 3 === colIdx).map((moment) => (
+                <Dialog key={moment.id}>
+                  <DialogTrigger asChild>
+                    <div className="group relative rounded-3xl overflow-hidden cursor-zoom-in hover-lift border border-border/50 shadow-sm hover:shadow-2xl transition-all duration-500 bg-muted">
+                      <img
+                        src={moment.url}
+                        alt={moment.title}
+                        loading="eager"
+                        decoding="async"
+                        className="w-full h-auto transition-transform duration-1000 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Heart className="w-4 h-4 text-accent fill-accent" />
+                          <span className="text-accent text-[10px] font-bold uppercase tracking-[0.2em]">{moment.category}</span>
+                        </div>
+                        <h4 className="text-white font-headline text-xl font-bold">{moment.title}</h4>
+                        <div className="mt-4 flex items-center gap-2">
+                           <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center">
+                              <Sparkles className="w-3 h-3 text-white" />
+                           </div>
+                           <span className="text-white/60 text-[10px] font-medium">Capture by Team Documentation</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </DialogTrigger>
-                <DialogContent className="max-w-4xl p-0 overflow-hidden border-none bg-black/90 shadow-none">
-                  <div className="relative aspect-[4/3] w-full">
-                    <Image
-                      src={moment.url}
-                      alt={moment.title}
-                      fill
-                      className="object-contain"
-                    />
-                    <div className="absolute bottom-6 left-6 right-6 p-6 bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl">
-                       <DialogTitle className="text-white font-headline text-2xl font-bold mb-1">{moment.title}</DialogTitle>
-                       <DialogDescription className="text-white/60 text-sm">Dokumentasi KKN Kelompok 5 Unmer Malang di Desa Pandanrejo.</DialogDescription>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl p-0 overflow-hidden border-none bg-black/90 shadow-none">
+                    <div className="relative aspect-[4/3] w-full">
+                      <img
+                        src={moment.url}
+                        alt={moment.title}
+                        className="w-full h-full object-contain"
+                      />
+                      <div className="absolute bottom-6 left-6 right-6 p-6 bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl">
+                         <DialogTitle className="text-white font-headline text-2xl font-bold mb-1">{moment.title}</DialogTitle>
+                         <DialogDescription className="text-white/60 text-sm">Dokumentasi KKN Kelompok 5 Unmer Malang di Desa Pandanrejo.</DialogDescription>
+                      </div>
                     </div>
-                  </div>
-                </DialogContent>
-              </Dialog>
-            );
-          })}
+                  </DialogContent>
+                </Dialog>
+              ))}
+            </div>
+          ))}
         </div>
 
         <div className="mt-20 text-center">

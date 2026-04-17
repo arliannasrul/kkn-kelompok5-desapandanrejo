@@ -45,7 +45,7 @@ export default function Home() {
         <WorkPrograms />
       </section>
 
-      <section className="reveal-on-scroll">
+      <section>
         <MomentsGallery />
       </section>
 
