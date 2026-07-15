@@ -24,7 +24,7 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <div className="rounded-full bg-secondary p-1 overflow-hidden flex items-center justify-center">
-                <Image src="/logo.png" alt="Logo KKN" width={56} height={56} className="object-cover scale-150" />
+                <Image src="/logo.webp" alt="Logo KKN" width={56} height={56} className="object-cover scale-150" />
               </div>
               <span className="font-headline text-2xl font-bold tracking-tight">KKN Kelompok 5</span>
             </div>

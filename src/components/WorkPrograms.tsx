@@ -164,7 +164,7 @@ export function WorkPrograms() {
                 <p className="text-muted-foreground italic font-medium mb-4">Sampah plastik masih ditumpuk dan belum ada pengelolaan terpadu.</p>
                 <div className="relative aspect-video rounded-2xl overflow-hidden border border-border shadow-sm grayscale opacity-70">
                   <Image 
-                    src="/before%20after/before.jpg" 
+                    src="/before%20after/before.webp" 
                     alt="Kondisi Sebelum" 
                     fill 
                     className="object-cover object-[center_65%]" 
@@ -178,7 +178,7 @@ export function WorkPrograms() {
                 <p className="text-primary font-bold mb-4">Dihasilkannya bahan bakar cair dari proses pirolisis sebagai nilai tambah sampah plastik.</p>
                 <div className="relative aspect-video rounded-2xl overflow-hidden border-2 border-primary/20 shadow-glow">
                   <Image 
-                    src="/before%20after/after.jpg" 
+                    src="/before%20after/after.webp" 
                     alt="Kondisi Sesudah" 
                     fill 
                     className="object-cover" 

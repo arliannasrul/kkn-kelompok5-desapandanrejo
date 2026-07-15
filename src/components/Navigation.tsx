@@ -47,7 +47,7 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-3 group cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
           <div className="p-1 bg-secondary rounded-full group-hover:rotate-12 transition-transform duration-300 overflow-hidden">
-            <Image src="/logo.png" alt="Logo KKN" width={40} height={40} className="object-cover rounded-full scale-125" />
+            <Image src="/logo.webp" alt="Logo KKN" width={40} height={40} className="object-cover rounded-full scale-125" />
           </div>
           <div className="flex flex-col">
             <span className={cn(

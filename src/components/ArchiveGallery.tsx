@@ -38,10 +38,10 @@ export function ArchiveGallery() {
       }
     ],
     posters: [
-      { id: 4, title: "Poster KKN Mesin Pirolisis", imageUrl: "/poster.jpg.jpg" }
+      { id: 4, title: "Poster KKN Mesin Pirolisis", imageUrl: "/poster.jpg.webp" }
     ],
     videos: [
-      { id: 6, title: "Video Profil Desa Pandanrejo", duration: "05:20", imageId: "video-thumbnail", url: "#" }
+      { id: 6, title: "Video Profile Program Kerja", duration: "05:20", imageId: "video-thumbnail", url: "https://youtu.be/fqH4ZKYUDPg?si=Obq3TuNbqdYNURGb" }
     ]
   };
 
@@ -264,24 +264,64 @@ export function ArchiveGallery() {
           <TabsContent value="videos" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
             {archives.videos.map(video => {
                const videoImg = PlaceHolderImages.find(img => img.id === video.imageId);
+
+               // Konversi URL ke format embed
+               const getEmbedUrl = (url: string) => {
+                 // YouTube: https://youtu.be/ID atau https://www.youtube.com/watch?v=ID
+                 const ytShort = url.match(/youtu\.be\/([^?&]+)/);
+                 const ytWatch = url.match(/youtube\.com\/watch\?v=([^&]+)/);
+                 const ytId = ytShort?.[1] || ytWatch?.[1];
+                 if (ytId) return `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0`;
+
+                 // Google Drive: https://drive.google.com/file/d/FILE_ID/view
+                 const gdrive = url.match(/drive\.google\.com\/file\/d\/([^/]+)/);
+                 if (gdrive?.[1]) return `https://drive.google.com/file/d/${gdrive[1]}/preview`;
+
+                 return url;
+               };
+
                return (
-                 <div key={video.id} className="relative aspect-video rounded-3xl overflow-hidden group cursor-pointer shadow-2xl">
-                    {videoImg?.imageUrl && (
-                      <Image
-                        src={videoImg.imageUrl}
-                        alt={video.title}
-                        fill
-                        className="object-cover brightness-75 group-hover:scale-105 transition-transform duration-1000"
-                      />
-                    )}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                       <div className="w-20 h-20 bg-accent text-primary rounded-full flex items-center justify-center mb-6 shadow-glow animate-pulse">
-                          <Play className="w-8 h-8 fill-current ml-1" />
+                 <Dialog key={video.id}>
+                   <DialogTrigger asChild>
+                     <div className="relative aspect-video rounded-3xl overflow-hidden group cursor-pointer shadow-2xl">
+                       {videoImg?.imageUrl && (
+                         <Image
+                           src={videoImg.imageUrl}
+                           alt={video.title}
+                           fill
+                           className="object-cover brightness-75 group-hover:scale-105 transition-transform duration-1000"
+                         />
+                       )}
+                       <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
+                       <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+                          <div className="w-20 h-20 bg-accent text-primary rounded-full flex items-center justify-center mb-6 shadow-glow group-hover:scale-110 transition-transform duration-300">
+                             <Play className="w-8 h-8 fill-current ml-1" />
+                          </div>
+                          <h4 className="text-3xl font-headline font-bold mb-2">{video.title}</h4>
+                          <p className="text-accent/80 font-medium">Durasi: {video.duration}</p>
+                          <p className="text-white/50 text-sm mt-2">Klik untuk memutar video</p>
                        </div>
-                       <h4 className="text-3xl font-headline font-bold mb-2">{video.title}</h4>
-                       <p className="text-accent/80 font-medium">Duration: {video.duration}</p>
                     </div>
-                 </div>
+                   </DialogTrigger>
+                   <DialogContent className="max-w-4xl p-0 overflow-hidden border-none bg-black shadow-2xl">
+                     <DialogHeader className="sr-only">
+                       <DialogTitle>{video.title}</DialogTitle>
+                     </DialogHeader>
+                     <div className="relative aspect-video w-full bg-black">
+                       <iframe
+                         src={getEmbedUrl(video.url)}
+                         title={video.title}
+                         className="w-full h-full"
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                         allowFullScreen
+                       />
+                     </div>
+                     <div className="p-4 bg-black/90">
+                       <h4 className="text-white font-headline font-bold text-lg">{video.title}</h4>
+                       <p className="text-white/50 text-sm mt-1">Durasi: {video.duration} · KKN Kelompok 5 Unmer Malang</p>
+                     </div>
+                   </DialogContent>
+                 </Dialog>
                );
             })}
           </TabsContent>
