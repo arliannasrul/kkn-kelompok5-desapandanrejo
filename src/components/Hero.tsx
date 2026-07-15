@@ -6,15 +6,15 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin, Calendar, Sparkles } from "lucide-react";
 
 const HERO_IMAGES = [
-  '/foto/20260215_100813.jpg',
-  '/foto/Serah%20terima%20alat.JPG',
-  '/foto/makrab%20perpisahan%20karang%20taruna.jpg',
-  '/foto/pembukaan1.JPG',
-  '/foto/pembukaan2.JPG',
-  '/foto/pembukaan3.JPG',
-  '/foto/serah%20terima%20alat2.JPG',
-  '/foto/sosialisasi%20mesin%20dengan%20warga.jpg',
-  '/foto/sosialisasid%20mesin%20dengan%20warga%202.jpg'
+  '/foto/20260215_100813.webp',
+  '/foto/Serah%20terima%20alat.webp',
+  '/foto/makrab%20perpisahan%20karang%20taruna.webp',
+  '/foto/pembukaan1.webp',
+  '/foto/pembukaan2.webp',
+  '/foto/pembukaan3.webp',
+  '/foto/serah%20terima%20alat2.webp',
+  '/foto/sosialisasi%20mesin%20dengan%20warga.webp',
+  '/foto/sosialisasid%20mesin%20dengan%20warga%202.webp'
 ];
 
 export function Hero() {
